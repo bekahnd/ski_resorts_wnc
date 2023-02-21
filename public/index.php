@@ -1,6 +1,7 @@
 <?php
-require_once('private/initialize.php');
-
+require_once('../private/initialize.php');
+$page_title = 'Home';
+include('../private/shared/public_header.php');
 ?>
 
 <h1>Welcome</h1>
