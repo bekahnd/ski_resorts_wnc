@@ -21,3 +21,5 @@ function db_disconnect($connection) {
     $connection->close();
   }
 }
+
+?>
