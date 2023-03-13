@@ -14,6 +14,7 @@ $page_title = 'Login';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
   $password = $_POST['password'];
+
   $errors[] = '';
 
   // Validations
@@ -24,14 +25,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors[] = "Password cannot be blank.";
   }
 
-  $sql = "SELECT * FROM member WHERE username = '".$username."' AND hashed_password = '".$password."'";
+  $sqlHash = "SELECT * FROM member WHERE username = '".$username."'";
 
-  $result = mysqli_query($database, $sql);
+  $result = mysqli_query($database, $sqlHash);
 
-  $row = mysqli_fetch_array($result);
+  if (mysqli_num_rows($result) == 1) {
+    $row = mysqli_fetch_array($result);
+    $the_hashed_password = $row['hashed_password'];    
+  }
 
-if(!$row) {
+  
+  // $sql = "SELECT * FROM member WHERE username = '".$username."' AND hashed_password = '".$password."'";
+  
+  // $result = mysqli_query($database, $sql);
+  $hashed_password = password_verify($password, $the_hashed_password);
+
+
+if(!$hashed_password) {
   echo "Login failed.";
+  echo $hashed_password;
 } else {
   if($row["is_admin"] == 0) {
     $_SESSION["username"] = $username;
@@ -52,7 +64,7 @@ if(!$row) {
 ?>
  
 
- <h1>Login Form</h1>
+ <h2>Login Form</h2>
        <form action="login.php" method="POST">
          <label>username</label>
          <input type="text" name="username" required><br>

@@ -1,28 +1,51 @@
 <?php
-
 require('../private/initialize.php');
-require_once(SHARED_PATH . '/public_header.php');
+$page_title = 'Create an Account';
+
+
+?>
+<?php
+
+include_once(SHARED_PATH . '/public_header.php');
+
+if(!$database) {
+  echo("Connection Failed.");
+} else {
+  echo("Connection Successful!<br>");
+}
 
 if(is_post_request()) {
-  $args = $_POST['user'];
-  $user = new User($args);
-  $result = $user->save();
+  $first_name = $_POST["fname"];
+  $last_name = $_POST["lname"];
+  $username = $_POST["uname"];
+  $password = $_POST["password"];
+  $confirm_password = $_POST["confirm_password"];
+  $email = $_POST["email"];
+  $state_id = $_POST["state"];
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+  $duplicate = mysqli_query($database, "SELECT * FROM member WHERE username = '$username' or email = '$email'");
 
-  if($result === true) {
-    $new_id = $user->id;
-    $_SESSION['message'] = 'The user was created successfully.';
-    redirect_to(url_for('public/admin_home.php'));
+  if(mysqli_num_rows($duplicate) > 0) {
+    echo "Username or Email has already been taken.";
   } else {
-    // show errors
+    if($password == $confirm_password) {
+      $sql = "INSERT INTO member (username, first_name, last_name, email, state_id, hashed_password) VALUES ('$username', '$first_name', '$last_name', '$email', '$state_id', '$hashed_password')";
+      mysqli_query($database, $sql);
+      var_dump($sql);
+      redirect_to(url_for("public/index.php"));
+
+    } else {
+      echo "Passwords do not match.";
+    }
   }
-} else {
-  $user = new User;
 }
 
 ?>
 
+
+
 <h2>Create an Account</h2>
-<form action="new.php" method="post">
+<form action="" method="post">
   <label for="fname">*First Name:</label>
   <input type="text" name="fname" id="fname" value="" required><br>
   <label for="lname">*Last Name:</label>

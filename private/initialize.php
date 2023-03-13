@@ -21,14 +21,10 @@ require_once('db_credentials.php');
 require_once('functions.php');
 require_once('db_functions.php');
 require_once('validation_functions.php');
-// require_once('classes/databaseobject.class.php');
-// require_once('classes/user.class.php');
-// require_once('classes/session.class.php');
 
+$page_title = '';
 
 $database = db_connect();
-// DatabaseObject::set_database($database);
 
-// $session = session_start();
 
 ?>

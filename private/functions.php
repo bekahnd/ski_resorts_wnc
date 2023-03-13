@@ -36,6 +36,15 @@ function check_member_login() {
   } 
 }
 
+function check_logged_in() {
+  if(!isset($_SESSION["username"])) {
+    echo '<a href="' . url_for('public/login.php') . '">Login</a>';
+    echo '<a href="' . url_for('public/registration.php') . '">Sign Up</a>';
+  } else {
+    echo '<a href="' . url_for('/public/logout.php') . '">Logout, ' . $_SESSION["username"] . '</a>';
+  }
+}
+
 // Checks if there was a post request
 function is_post_request() {
   return $_SERVER['REQUEST_METHOD'] == 'POST';
@@ -56,5 +65,6 @@ function display_errors($errors=array()) {
   }
   return $output;
 }
+
 
 ?>
