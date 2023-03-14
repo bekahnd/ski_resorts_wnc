@@ -44,7 +44,7 @@ if(!$hashed_password) {
       $_SESSION["username"] = $username;
       $_SESSION["is_admin"] = 1;
 
-      redirect_to('admin_home.php');
+      redirect_to(url_for('public/admin/admin_home.php'));
   } else {
     echo "username or password incorrect.";
   }

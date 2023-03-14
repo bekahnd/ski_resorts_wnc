@@ -205,6 +205,11 @@ button {
   width: 150px;
 }
 
+/****** Admin Home ******/
+#membersTable {
+  margin: 30px auto;
+}
+
 
 
 
