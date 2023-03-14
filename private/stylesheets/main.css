@@ -133,15 +133,76 @@ h3 {
 
 /****** Prices ******/
 table, th, td {
-
-  border: 1px solid;
+  border: 3px solid #943E00;
   border-collapse: collapse;
+  padding: 5px;
 }
 
 #tables {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+}
+
+caption {
+  font-weight: bold;
+}
+
+/* tr:nth-of-type(odd) {
+  background-color: #02CDE0;
+} */
+
+tr:nth-of-type(even) {
+  background-color: rgb(242, 238, 238);
+}
+
+tr:hover {
+  background-color: #018794;
+}
+
+#specials {
+  margin-bottom: 50px;
+}
+
+/****** Login ******/
+#login {
+  background-color: rgb(242, 238, 238);
+  border: 10px double #02CDE0;
+  box-shadow: 0px 0px 15px #000;
+  text-align: center;
+  margin: 50px auto;
+  padding: 30px 0px;
+  width: 50%;
+}
+
+#login form{
+  margin: 30px 0;
+}
+
+#login a {
+  text-decoration: none;
+}
+
+input {
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+}
+
+#submit, button {
+  background-color: #018794;
+  border-radius: 20px;
+  color: #fff;
+  margin-top: 20px;
+  padding: 5px;
+  width: 100px;
+}
+
+/******* Registration ******/
+button {
+  width: 150px;
 }
 
 

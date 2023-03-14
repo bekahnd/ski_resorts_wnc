@@ -3,14 +3,6 @@ include_once('../private/initialize.php');
 include_once(SHARED_PATH . '/public_header.php');
 $page_title = 'Login';
 
-
-
-// if($database === false) {
-//   die("connection failed");
-// } else {
-//   echo "connection successful";
-// }
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -34,11 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $the_hashed_password = $row['hashed_password'];    
   }
 
-  
-  // $sql = "SELECT * FROM member WHERE username = '".$username."' AND hashed_password = '".$password."'";
-  
-  // $result = mysqli_query($database, $sql);
   $hashed_password = password_verify($password, $the_hashed_password);
+  
 
 
 if(!$hashed_password) {
@@ -63,15 +52,15 @@ if(!$hashed_password) {
 }
 ?>
  
-
- <h2>Login Form</h2>
-       <form action="login.php" method="POST">
-         <label>username</label>
-         <input type="text" name="username" required><br>
-         <label>password</label>
-         <input type="password" name="password" required><br>
-         <input type="submit" name="submit" value="login">
-       </form>
+  <div id="login">
+    <h2>Login</h2>
+    <form action="login.php" method="POST" id="loginForm">
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <input type="submit" name="submit" value="Login" id="submit">
+    </form>
+    <p>Don't have an account yet? Click <a href="registration.php">here</a> to create one.</p>
+  </div>
 
  </body>
 </html>

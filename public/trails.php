@@ -5,16 +5,6 @@ check_member_login();
 $page_title = 'Trails';
 ?>
 
-<?php
-if(!$database) {
-  echo("Connection Failed.");
-} else {
-  echo("Connection Successful!<br>");
-}
-
-
-
-?>
 <div>
   <h2>Cataloochie Ski Resort</h2>
   <ul>
