@@ -60,6 +60,20 @@ nav a:hover {
   text-decoration: underline;
 }
 
+#nav-trigger {
+  background-color: #018794;
+  color: #000;
+  cursor: pointer;
+  display: block;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#nav-trigger,
+#nav-checkbox {
+  display: none;
+}
+
 #links {
   background-color: #02CDE0;
   border-bottom: 2px double #000;
@@ -208,6 +222,60 @@ button {
 /****** Admin Home ******/
 #membersTable {
   margin: 30px auto;
+}
+
+/****** Responsive ******/
+/****** 850 ******/
+@media only screen and (max-width: 850px) {
+  #tables {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #login {
+    width: 70%;
+  }
+}
+/****** 800 ******/
+@media only screen and (max-width: 800px) {
+  #resortDescriptions {
+    display: block;
+    margin: 20px;
+  }
+}
+
+/****** 650 ******/
+@media only screen and (max-width: 650px) {
+  #nav-trigger {
+    display: block;
+  }
+
+  #nav-checkbox:checked + ul {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav li {
+    display: block;
+  }
+
+  nav a {
+    border-bottom: 2px solid #000;
+    border-left: none;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #tables {
+    display: block;
+  }
+
+  #login {
+    width: 90%;
+  }
 }
 
 

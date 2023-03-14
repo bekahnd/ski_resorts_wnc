@@ -20,6 +20,8 @@
 
 
           <nav role="navigation">
+            <label for="nav-checkbox" id="nav-trigger">Menu</label>
+            <input type="checkbox" id="nav-checkbox">
             <ul>
               <li><a href="<?php echo url_for('/public/index.php'); ?>">Home</a></li>
               <li><a href="<?php echo url_for('/public/trails.php'); ?>">Trails</a></li>
