@@ -224,6 +224,39 @@ button {
   margin: 30px auto;
 }
 
+/****** Gallery ******/
+#posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+#alb {
+  height: 350px;
+  padding: 50px;
+  width: 350px;
+}
+
+#alb img {
+  box-shadow: 0px 0px 15px #000;
+  height: 100%;
+  width: 100%;
+}
+
+#alb p {
+  margin: 0;
+}
+
+#postButton {
+  background-color: #018794;
+  border: 1px solid #000;
+  border-radius: 20px;
+  color: #fff;
+  margin-left: 50px;
+  padding: 10px;
+  text-decoration: none;
+}
+
 /****** Responsive ******/
 /****** 850 ******/
 @media only screen and (max-width: 850px) {
@@ -235,6 +268,12 @@ button {
     width: 70%;
   }
 }
+
+#not_signed {
+  color: red;
+}
+
+
 /****** 800 ******/
 @media only screen and (max-width: 800px) {
   #resortDescriptions {

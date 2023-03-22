@@ -32,7 +32,9 @@ function check_admin_login() {
 // Use on pages that general users and admin can see
 function check_member_login() {
   if(!isset($_SESSION["username"])) {
-    redirect_to("login.php");
+    echo ("<p>Please login <a href='login.php'>here</a> to see more information such as trail lists, what is currently open, prices, reviews and more! Don't have an account yet? No problem, create a free account <a href='registration.php'>here</a> to access these features.</p>");
+    die;
+    // redirect_to("login.php");
   } 
 }
 

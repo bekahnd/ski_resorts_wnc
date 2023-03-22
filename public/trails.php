@@ -194,7 +194,3 @@ $page_title = 'Trails';
 
   </ul>
 </div>
-
-
-
-
