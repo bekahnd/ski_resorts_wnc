@@ -3,6 +3,10 @@ html {
   background-color: rgb(242, 238, 238);
 }
 
+.xdebug-error {
+  display: none;
+}
+
 #banner {
   padding: 10px;
   background-color: white;
@@ -212,6 +216,15 @@ input {
   margin-top: 20px;
   padding: 5px;
   width: 100px;
+}
+
+#failed {
+  color: #ff0000;
+  font-size: 150%;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 /******* Registration ******/

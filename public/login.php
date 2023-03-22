@@ -31,9 +31,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 if(!$hashed_password) {
-  echo "Login failed.";
-  echo $hashed_password;
-} else {
+  if(!$the_hashed_password) {
+    echo "<p id='failed'>Username not found.</p>";
+  } else {
+  echo "<p id='failed'>Username or password incorrect.</p>";
+  // echo $hashed_password;
+} } else {
   if($row["is_admin"] == 0) {
     $_SESSION["username"] = $username;
     $_SESSION["is_admin"] = 0;
@@ -55,8 +58,8 @@ if(!$hashed_password) {
   <div id="login">
     <h2>Login</h2>
     <form action="login.php" method="POST" id="loginForm">
-      <input type="text" name="username" placeholder="Username" required><br>
-      <input type="password" name="password" placeholder="Password" required><br>
+      <input type="text" name="username" value="<?php if (isset($username)) echo $username; ?>" placeholder="Username" required><br>
+      <input type="password" name="password" value="<?php if (isset($password)) echo $password; ?>" placeholder="Password" required><br>
       <input type="submit" name="submit" value="Login" id="submit">
     </form>
     <p>Don't have an account yet? Click <a href="registration.php">here</a> to create one.</p>
