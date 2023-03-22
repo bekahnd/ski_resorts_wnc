@@ -20,6 +20,7 @@ if (isset($_GET['error'])): ?>
   $sql = "SELECT resort_id, resort_name FROM resort";
   if($r_set=$database->query($sql)) {
     echo "<select name=resort id=resort required>";
+    echo "<option selected>Choose Resort</option>";
     while($row=$r_set->fetch_assoc()) {
       echo "<option value=$row[resort_id]>$row[resort_name]</option>";
     } 

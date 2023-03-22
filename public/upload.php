@@ -38,6 +38,9 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
     if ($img_size > 500000) {
       $em = "Sorry, your file is too large.";
       redirect_to('post.php?error='.$em);
+    } elseif($resort_id == 'Choose Resort') {
+      $em = "Please choose the resort your post corresponds with. Don't see it listed? Choose 'other'.";
+      redirect_to('post.php?error='.$em);
     } else {
       $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
       $img_ex_lc = strtolower($img_ex);
