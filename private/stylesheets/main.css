@@ -3,6 +3,7 @@ html {
   background-color: rgb(242, 238, 238);
 }
 
+/**Hide Errors to Users**/
 .xdebug-error {
   display: none;
 }
