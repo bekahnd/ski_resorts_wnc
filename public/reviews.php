@@ -1,10 +1,11 @@
+<div id="reviews">
 <?php
 include_once('../private/initialize.php');
 include_once(SHARED_PATH . '/public_header.php');
 $page_title = 'Reviews';
 ?>
 
-<h2>Reviews</h2>
+<h2><?php echo $page_title; ?></h2>
 <?php
 $api_key = 'AIzaSyA6LefrzlhKHmkKApqOyu7UeQJwnN2RDfQ';
 
@@ -46,8 +47,8 @@ foreach ($reviews2 as $review2) {
   $rating = $review2['rating'];
   $text = $review2['text'];
   $time = $review2['relative_time_description'];
-  echo "<div><strong>$author_name</strong> rated Sugar Mountain Resort <span id='stars'>$rating stars</span> - $time</div>";
-  echo "<div>$text</div>";
+  echo "<p><strong>$author_name</strong> rated Sugar Mountain Resort <span id='stars'>$rating stars</span> - $time</p>";
+  echo "<p>$text</p>";
 }
 ?>
 <p>Want to see more reviews for Sigar Mountain Resort? Click <a href='https://rb.gy/ewfm3m' target='_blank'>here</a>.</p>
@@ -68,8 +69,8 @@ foreach ($reviews3 as $review3) {
   $rating = $review3['rating'];
   $text = $review3['text'];
   $time = $review3['relative_time_description'];
-  echo "<div><strong>$author_name</strong> rated Beech Mountain Resort <span id='stars'>$rating stars</span> - $time</div>";
-  echo "<div>$text</div>";
+  echo "<p><strong>$author_name</strong> rated Beech Mountain Resort <span id='stars'>$rating stars</span> - $time</p>";
+  echo "<p>$text</p>";
 }
 ?>
 <p>Want to see more reviews for Beech Mountain Resort Click <a href='https://rb.gy/h7jtuo' target='_blank'>here</a>.</p>
@@ -90,8 +91,8 @@ foreach ($reviews4 as $review4) {
   $rating = $review4['rating'];
   $text = $review4['text'];
   $time = $review4['relative_time_description'];
-  echo "<div><strong>$author_name</strong> rated Beech Mountain Resort <span id='stars'>$rating stars</span> - $time</div>";
-  echo "<div>$text</div>";
+  echo "<p><strong>$author_name</strong> rated Appalachian Ski Mtn <span id='stars'>$rating stars</span> - $time</p>";
+  echo "<p>$text</p>";
 }
 ?>
 <p>Want to see more reviews for Appalachian Ski Mtn Click <a href='https://rb.gy/qu1shx' target='_blank'>here</a>.</p>
@@ -112,8 +113,15 @@ foreach ($reviews5 as $review5) {
   $rating = $review5['rating'];
   $text = $review5['text'];
   $time = $review5['relative_time_description'];
-  echo "<div><strong>$author_name</strong> rated Beech Mountain Resort <span id='stars'>$rating stars</span> - $time</div>";
-  echo "<div>$text</div>";
+  echo "<p><strong>$author_name</strong> rated Wolf Ridge Ski Resort <span id='stars'>$rating stars</span> - $time</p>";
+  echo "<p>$text</p>";
 }
 ?>
 <p>Want to see more reviews for Wolf Ridge Ski Resort Click <a href='https://rb.gy/q9snwk' target='_blank'>here</a>.</p>
+
+  <?php
+  include(SHARED_PATH . '/public_footer.php');
+?>
+</div>
+</body>
+</html>

@@ -42,7 +42,7 @@ if(!$hashed_password) {
     $_SESSION["is_admin"] = 0;
 
 
-    redirect_to('trails.php');
+    redirect_to('profile.php');
   } elseif($row["is_admin"] == 1) {
       $_SESSION["username"] = $username;
       $_SESSION["is_admin"] = 1;
@@ -67,5 +67,3 @@ if(!$hashed_password) {
 
  </body>
 </html>
-
-

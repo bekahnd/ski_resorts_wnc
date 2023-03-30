@@ -6,6 +6,7 @@
       echo '- ' . $page_title; } ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../private/stylesheets/main.css">
+    <script src="../../private/JS/ski.js" defer></script>
   </head>
 
   <body>

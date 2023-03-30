@@ -6,6 +6,7 @@
       echo '- ' . $page_title; } ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../private/stylesheets/main.css">
+    <script src="../private/JS/ski.js" defer></script>
   </head>
 
   <body>
@@ -22,7 +23,7 @@
           <nav role="navigation">
             <label for="nav-checkbox" id="nav-trigger">Menu</label>
             <input type="checkbox" id="nav-checkbox">
-            <ul>
+            <ul id="nav-li">
               <li><a href="<?php echo url_for('/public/index.php'); ?>">Home</a></li>
               <li><a href="<?php echo url_for('/public/trails.php'); ?>">Trails</a></li>
               <li><a href="<?php echo url_for('/public/prices.php'); ?>">Prices</a></li>

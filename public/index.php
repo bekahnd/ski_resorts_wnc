@@ -1,3 +1,5 @@
+<div id="home">
+
 <?php
 require_once('../private/initialize.php');
 include(SHARED_PATH . '/public_header.php');
@@ -5,8 +7,15 @@ $page_title = 'Home';
 ?>
     <main>
       <div id="intro">
-        <h2>Welcome to <abbr title="Western North Carolina">WNC</abbr> Ski Resorts!</h2>
-        <p>Are you living in or planning to visit western North Carolina? Are you looking for somewhere to ski or snowboard but are not sure of what the area has to offer? You have come to the right place! We have five ski resorts in the area ranging from Waynesville, <abbr title="North Carolina">NC</abbr> to Blowing Rock, <abbr title="North Carolina">NC</abbr>. This website offers a lot of information regarding the five resorts to help guide you in choosing the right place for you. Below is a brief description of each resort and what it has to offer. Please register with us and create an account to explore more information such as trail info, price info, Google reviews, and more!</p>
+        <h2 id="home">Welcome to <abbr title="Western North Carolina">WNC</abbr> Ski Resorts!</h2>
+        <p>Are you living in or planning to visit western North Carolina? Are you looking for somewhere to ski or snowboard but are not sure of what the area has to offer? You have come to the right place! We have five ski resorts in the area ranging from Waynesville, <abbr title="North Carolina">NC</abbr> to Blowing Rock, <abbr title="North Carolina">NC</abbr>. This website offers a lot of information regarding the five resorts to help guide you in choosing the right place for you. Below is a brief description of each resort and what it has to offer. There is so much to consider before planning the <strong>perfect</strong> ski vacation and we want to help!</p>
+        <p><strong>Create an account to compare the resorts in different areas including:</strong></p>
+        <ul>
+          <li>Trails - difficulty and what's open</li>
+          <li>Prices - lift tickets and rentals, prices vary depending on length of time and days of the week</li>
+          <li>Gallery - check out pictures uploaded by other people enjoying the slopes, just like you will</li>
+          <li>Reviews - check out what people are saying about the resorts and maybe find some tips on how to best enjoy your time there</li>
+        </ul>
       </div>
 
         <?php
@@ -168,5 +177,9 @@ $page_title = 'Home';
         </div>
       </div>
     </main>
+<?php
+  include(SHARED_PATH . '/public_footer.php');
+?>
+
   </body>
 </html>

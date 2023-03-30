@@ -1,3 +1,5 @@
+<div id="trails">
+
 <?php
 include_once('../private/initialize.php');
 include_once(SHARED_PATH . '/public_header.php');
@@ -5,8 +7,9 @@ check_member_login();
 $page_title = 'Trails';
 ?>
 
+<h2><?php echo $page_title; ?></h2>
 <div>
-  <h2>Cataloochie Ski Resort</h2>
+  <h3>Cataloochie Ski Resort</h3>
   <ul>
     <li>Open:</li>
     <ul>
@@ -44,7 +47,7 @@ $page_title = 'Trails';
 </div>
 
 <div>
-  <h2>Sugar Mountain Resort</h2>
+  <h3>Sugar Mountain Resort</h3>
   <ul>
     <li>Open:</li>
     <ul>
@@ -82,7 +85,7 @@ $page_title = 'Trails';
 </div>
 
 <div>
-  <h2>Beech Mountain Resort</h2>
+  <h3>Beech Mountain Resort</h3>
   <ul>
     <li>Open:</li>
     <ul>
@@ -120,7 +123,7 @@ $page_title = 'Trails';
 </div>
 
 <div>
-  <h2>Appalachian Ski Mtn</h2>
+  <h3>Appalachian Ski Mtn</h3>
   <ul>
     <li>Open:</li>
     <ul>
@@ -158,7 +161,7 @@ $page_title = 'Trails';
 </div>
 
 <div>
-  <h2>Wolf Ridge Ski Resort</h2>
+  <h3>Wolf Ridge Ski Resort</h3>
   <ul>
     <li>Open:</li>
     <ul>
@@ -194,3 +197,9 @@ $page_title = 'Trails';
 
   </ul>
 </div>
+<?php
+  include(SHARED_PATH . '/public_footer.php');
+?>
+</div>
+</body>
+</html>
