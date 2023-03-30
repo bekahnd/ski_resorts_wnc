@@ -3,6 +3,12 @@ html {
   background-color: rgb(242, 238, 238);
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 /**Hide Errors to Users**/
 .xdebug-error {
   display: none;
@@ -11,16 +17,17 @@ html {
 #banner {
   padding: 10px;
   background-color: white;
-  border: 10px double #02CDE0;
+  border: 10px double #4EEFFD;
   box-shadow: 0px 0px 15px #000;
   margin: auto;
   width: 90%;
 }
 
+
 /****** Heading and Navigation ******/
 
 
-header {
+header, footer {
   box-shadow: 0px 0px 15px #000;
 }
 
@@ -34,7 +41,7 @@ h1 {
 }
 
 nav {
-  background-color: #018794;
+  background-color: #01A8B7;
 }
 
 nav a {
@@ -65,8 +72,28 @@ nav a:hover {
   text-decoration: underline;
 }
 
+#reviews #nav-li li:nth-of-type(5) {
+  font-weight: bolder;
+}
+
+#home #nav-li li:nth-of-type(1) {
+  font-weight: bolder;
+}
+
+#gallery #nav-li li:nth-of-type(4) {
+  font-weight: bolder;
+}
+
+#trails #nav-li li:nth-of-type(2) {
+  font-weight: bolder;
+}
+
+#price #nav-li li:nth-of-type(3) {
+  font-weight: bolder;
+}
+
 #nav-trigger {
-  background-color: #018794;
+  background-color: #01A8B7;
   color: #000;
   cursor: pointer;
   display: block;
@@ -80,7 +107,7 @@ nav a:hover {
 }
 
 #links {
-  background-color: #02CDE0;
+  background-color: #4EEFFD;
   border-bottom: 2px double #000;
   padding: 5px 0;
   text-align: right;
@@ -95,6 +122,39 @@ nav a:hover {
 #links a:nth-of-type(2) {
   border-left: 2px solid #000;
   padding-left: 2%;
+}
+
+/****** Footer *****/
+footer {
+  background-color: #4EEFFD;
+  border: 5px solid #01A8B7;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+footer ul {
+  padding-left: 0px;
+}
+
+footer li {
+  list-style-type: none;
+  padding: 5px;
+}
+
+footer a {
+  color: #000;
+  /* text-decoration: none; */
+}
+
+#cams {
+  border-left: 5px dotted #01A8B7;
+  text-align: center;
+}
+
+#resortLinks {
+  text-align: center;
 }
 
 /****** Index ******/
@@ -125,7 +185,7 @@ h2 {
 }
 
 #resortDesc {
-  background-color: #018794;
+  background-color: #01A8B7;
   border: 2px solid #000;
   border-radius: 30px;
   display: grid;
@@ -140,54 +200,99 @@ h2 {
 }
 
 #resortDesc p:first-of-type {
-  border-bottom: 3px double #02CDE0;
+  border-bottom: 3px double #4EEFFD;
   grid-column: span 2;
   padding-bottom: 10px;
 }
 
 h3 {
-  border-bottom: 3px double #02CDE0;
+  border-bottom: 3px double #4EEFFD;
   text-align: center;
 }
 
 /****** Prices ******/
+.tabs {
+  margin: 10px auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+#tab1, #tab2, #tab3 {
+  background: #01A8B7;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  display: inline;
+  margin: 0px 5px 0px 5px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+}
+
+#tab1:hover, #tab2:hover, #tab3:hover {
+  background: #4EEFFD;
+}
+
+#tab1Content, #tab2Content, #tab3Content {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#tab1Content {
+ display: block; 
+}
+
+#tab2Content, #tab3Content {
+ display: none; 
+}
+
 table, th, td {
   border: 3px solid #943E00;
   border-collapse: collapse;
   padding: 5px;
+  text-align: center;
+}
+
+table {
+  margin-bottom: 50px;
+  padding: 20px;
+  width: 100%;
 }
 
 #tables {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 20px;
+  margin: 20px auto;
 }
 
 caption {
   font-weight: bold;
+  margin-bottom: 10px;
 }
-
-/* tr:nth-of-type(odd) {
-  background-color: #02CDE0;
-} */
 
 tr:nth-of-type(even) {
   background-color: rgb(242, 238, 238);
 }
 
-tr:hover {
-  background-color: #018794;
+#otherTables {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+
 }
 
-#specials {
-  margin-bottom: 50px;
+#ages td,
+#specials td,
+#times td {
+  text-align: left
 }
+
+/* #specials {
+  margin-bottom: 50px;
+} */
 
 /****** Login ******/
 #login {
   background-color: rgb(242, 238, 238);
-  border: 10px double #02CDE0;
+  border: 10px double #4EEFFD;
   box-shadow: 0px 0px 15px #000;
   text-align: center;
   margin: 50px auto;
@@ -211,7 +316,7 @@ input {
 }
 
 #submit, button {
-  background-color: #018794;
+  background-color: #01A8B7;
   border-radius: 20px;
   color: #fff;
   margin-top: 20px;
@@ -262,7 +367,7 @@ button {
 }
 
 #postButton {
-  background-color: #018794;
+  background-color: #01A8B7;
   border: 1px solid #000;
   border-radius: 20px;
   color: #fff;
@@ -274,9 +379,9 @@ button {
 /****** Responsive ******/
 /****** 850 ******/
 @media only screen and (max-width: 850px) {
-  #tables {
+  /* #tables {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
 
   #login {
     width: 70%;
