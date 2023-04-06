@@ -320,7 +320,7 @@ input {
   width: 200px;
 }
 
-#submit, button {
+#submit, button, #toggle {
   background-color: #01A8B7;
   border-radius: 20px;
   color: #fff;
@@ -348,6 +348,11 @@ button {
 /****** Admin Home ******/
 #membersTable {
   margin: 30px auto;
+}
+
+#toggleA {
+  color: #fff;
+  text-decoration: none;
 }
 
 
