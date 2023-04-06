@@ -1,5 +1,8 @@
 <?php
 include_once('../../private/initialize.php');
+?>
+<span id="admin_home">
+<?php
 include_once(SHARED_PATH . '/admin_header.php');
 $page_title = 'Admin Home';
 ?>
@@ -46,3 +49,4 @@ if(mysqli_num_rows($resultMember) > 0) {
 ?>
 
 </table>
+</span>

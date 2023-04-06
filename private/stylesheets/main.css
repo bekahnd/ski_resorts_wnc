@@ -93,6 +93,10 @@ nav a:hover {
   font-weight: bold;
 }
 
+#admin_home #nav-li li:nth-of-type(6) {
+  font-weight: bold;
+}
+
 #nav-trigger {
   background-color: #01A8B7;
   color: #000;
@@ -345,6 +349,8 @@ button {
 #membersTable {
   margin: 30px auto;
 }
+
+
 
 /****** Gallery ******/
 #posts {
