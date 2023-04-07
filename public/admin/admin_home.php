@@ -33,11 +33,12 @@ if(mysqli_num_rows($resultMember) > 0) {
     } else {
       $admin = "Yes";
     }
+    $date = new DateTime($row['date_joined']);
     echo "<tr><td>" . $row['username'] . "</td>";
     echo "<td>" . $row['first_name'] . "</td>";
     echo "<td>" . $row['last_name'] . "</td>";
     echo "<td>" . $row['email'] . "</td>";
-    echo "<td>" . $row['date_joined'] . "</td>";
+    echo "<td>" . $date->format('Y-m-d') . "</td>";
     echo "<td>" . $admin . "</td>";
     echo "<td><form method='post' action='toggle_admin.php'>";
     echo "  <input type='hidden' name='id' value='" . $row['member_id'] ."'>";
