@@ -21,9 +21,12 @@ function h($string="") {
 // Use on pages that only allow admin
 function check_admin_login() {
   if(!isset($_SESSION["username"])) {
-    redirect_to("login.php");
+    redirect_to(url_for("public/login.php"));
   } elseif($_SESSION['is_admin'] == 0) {
-    redirect_to('login.php');
+    // redirect_to(url_for('public/login.php'));
+    echo ("<p>Must have admin privileges to see this page.</p>");
+    echo ("<a href='../index.php'><button>Back to member home page</button></a>");
+    die;
   }
 }
 

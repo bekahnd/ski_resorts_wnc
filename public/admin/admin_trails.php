@@ -4,7 +4,8 @@ include_once('../../private/initialize.php');
 <span id="trails">
 <?php
 include_once(SHARED_PATH . '/admin_header.php');
-$page_title = 'Admin Home';
+$page_title = 'Admin Trails';
+check_admin_login();
 ?>
 <main>
 <h2><?php echo $page_title; ?></h2>
