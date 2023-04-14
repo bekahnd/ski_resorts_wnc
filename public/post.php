@@ -14,7 +14,7 @@ if (isset($_GET['error'])): ?>
   <label id="media">Upload photo or video here.</label>
   <input type="file" id="media" name="media"><br>
   <label id="caption">Create a caption.</label>
-  <input type="text" id ="caption" name="caption" placeholder="caption" value=<?php if (isset($_POST['caption'])) echo $_POST['caption']; ?>><br>
+  <input type="text" id ="caption" name="caption" placeholder="caption"><br>
 
   <?php
   $sql = "SELECT resort_id, resort_name FROM resort";

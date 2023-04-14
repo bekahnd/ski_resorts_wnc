@@ -10,13 +10,17 @@ function selectTab(tabIndex) {
 }
 
 /* For admin gallery delete button on hover */
-const imageContainer = document.querySelector('#alb');
-const deleteButton = imageContainer.querySelector('.delete_button');
+const imageContainers = document.querySelectorAll('#alb');
 
-imageContainer.addEventListener('mouseenter', () => {
-  deleteButton.style.display = 'block';
-});
+imageContainers.forEach(imageContainer => {
+  const deleteButton = imageContainer.querySelector('.delete_button');
+  const image = imageContainer.querySelector('img');
 
-imageContainer.addEventListener('mouseleave', () => {
-  deleteButton.style.display = 'none';
+  imageContainer.addEventListener('mouseenter', () => {
+    deleteButton.style.display = 'block';
+  });
+
+  imageContainer.addEventListener('mouseleave', () => {
+    deleteButton.style.display = 'none';
+  });
 });
