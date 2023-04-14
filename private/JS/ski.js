@@ -1,17 +1,4 @@
-// const tabs = document.querySelectorAll('[data-tab-value]')
-// const tabInfos = document.querySelectorAll('[data-tab-info]')
-
-// tabs.forEach(tab => {
-//   tab.addEventListener('click', () => {
-//     const target = document.querySelector(tab.dataset.tabValue);
-
-//     tabInfos.forEach(tabInfo => {
-//         tabInfo.classList.remove('active')
-//     })
-//     target.classList.add('active');
-//   })
-// })
-
+/* For prices page to have tabs for different tables */
 function selectTab(tabIndex) {
   //Hide All Tabs
   document.getElementById('tab1Content').style.display="none";
@@ -21,3 +8,15 @@ function selectTab(tabIndex) {
   //Show the Selected Tab
   document.getElementById('tab' + tabIndex + 'Content').style.display="block";  
 }
+
+/* For admin gallery delete button on hover */
+const imageContainer = document.querySelector('#alb');
+const deleteButton = imageContainer.querySelector('.delete_button');
+
+imageContainer.addEventListener('mouseenter', () => {
+  deleteButton.style.display = 'block';
+});
+
+imageContainer.addEventListener('mouseleave', () => {
+  deleteButton.style.display = 'none';
+});

@@ -355,6 +355,22 @@ button {
   text-decoration: none;
 }
 
+/******** Admin Galley ********/
+#alb {
+  position: relative;
+}
+
+.delete_button {
+  position: absolute;
+  top: 200;
+  right: 150;
+  display: none;
+}
+
+.delete_button button {
+  background-color: red;
+}
+
 
 
 /****** Gallery ******/
