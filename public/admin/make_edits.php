@@ -11,7 +11,6 @@ $tableName = "resort";
 
 if(isset($_POST['submit'])) {
   $id = $_POST['id'];
-  echo $id;
   $resortName = $_POST['resortName'];
   $description = $_POST['description'];
   $address = $_POST['address'];
@@ -28,16 +27,16 @@ if(isset($_POST['submit'])) {
   $result = mysqli_query($database, $sql);
   echo "<h3>The changes have been made and saved to the database. Check below for current values.</h3>";
   echo "<p>Resort Name - " . $resortName . "</p>";
-  echo "<p>Resort Name - " . $description . "</p>";
-  echo "<p>Resort Name - " . $address . "</p>";
-  echo "<p>Resort Name - " . $city . "</p>";
-  echo "<p>Resort Name - " . $zip . "</p>";
-  echo "<p>Resort Name - " . $phone . "</p>";
-  echo "<p>Resort Name - " . $trailNumber . "</p>";
-  echo "<p>Resort Name - " . $weekendOpening . "</p>";
-  echo "<p>Resort Name - " . $weekendClosing . "</p>";
-  echo "<p>Resort Name - " . $weekdayOpening . "</p>";
-  echo "<p>Resort Name - " . $weekdayClosing . "</p>";
+  echo "<p>Resort Description - " . $description . "</p>";
+  echo "<p>Resort Address - " . $address . "</p>";
+  echo "<p>Resort City - " . $city . "</p>";
+  echo "<p>Resort Zip Code - " . $zip . "</p>";
+  echo "<p>Resort Phone Number - " . $phone . "</p>";
+  echo "<p>Resort Trail Number - " . $trailNumber . "</p>";
+  echo "<p>Resort Weekend Opening Time - " . $weekendOpening . "</p>";
+  echo "<p>Resort Weekend closing Time - " . $weekendClosing . "</p>";
+  echo "<p>Resort Weekday Opening Time - " . $weekdayOpening . "</p>";
+  echo "<p>Resort Weekday Closing Time - " . $weekdayClosing . "</p>";
   echo "<button id='toggle'><a href='" . url_for('public/admin/admin_index.php') . "' id='toggleA'>&lt; &lt; Back to home page.</a></button>";
 }
 ?>

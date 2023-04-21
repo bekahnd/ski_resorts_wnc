@@ -1,0 +1,55 @@
+<?php
+include_once('../private/initialize.php');
+include_once(SHARED_PATH . '/public_header.php');
+check_member_login();
+$page_title = 'Search Results';
+?>
+<h2>Search Results</h2>
+
+<?php
+$search = $_GET['search'];
+
+
+$sql = "SELECT * FROM member WHERE username LIKE '%$search%' OR first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR date_joined LIKE '%$search%'";
+
+$result = mysqli_query($database, $sql);
+
+?>
+<button id='toggle'><a href='admin/admin_home.php' id='toggleA'>&lt; &lt; Back to full members list.</a></button>
+
+<?php
+if (mysqli_num_rows($result) > 0){
+  while($row = mysqli_fetch_assoc($result)) {
+    if ($row['is_admin'] == 0) {
+      $admin = "No";
+    } else {
+      $admin = "Yes";
+    }
+    ?>
+    <table id="membersTable">
+    <tr>
+      <th>Username</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Date Joined</th>
+      <th>Is Admin</th>
+      <th>Toggle Admin</th>
+    </tr>
+  <?php
+  $date = new DateTime($row['date_joined']);
+  echo "<tr><td>" . $row['username'] . "</td>";
+  echo "<td>" . $row['first_name'] . "</td>";
+  echo "<td>" . $row['last_name'] . "</td>";
+  echo "<td>" . $row['email'] . "</td>";
+  echo "<td>" . $date->format('Y-m-d') . "</td>";
+  echo "<td>" . $admin . "</td>";
+  echo "<td><form method='post' action='admin/toggle_admin.php'>";
+  echo "  <input type='hidden' name='id' value='" . $row['member_id'] ."'>";
+  echo "  <button type='submit' name='submit'>Toggle Admin</button>";
+  echo "</form></td>";
+  }
+}
+
+
+?>

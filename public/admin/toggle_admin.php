@@ -11,9 +11,7 @@ if(isset($_POST['submit'])) {
 
   $sql = "SELECT is_admin, username FROM $tableName WHERE member_id=$id";
   $result = mysqli_query($database, $sql);
-  print_r($result);
   $row = $result->fetch_assoc();
-    print_r($row);
 
   $is_admin = $row["is_admin"];
   $username = $row["username"];

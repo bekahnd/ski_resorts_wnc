@@ -38,7 +38,7 @@ if(isset($_POST['submit'])) {
   <label for="resortName">Resort Name:</label>
   <input type="text" name="resortName" id="resortName" value="<?php echo $resortName; ?>"><br>
   <label for="description">Description:</label>
-  <input type="textarea" name="description" id="description" value="<?php if(isset($description)) echo $description; ?>"><br>
+  <textarea name="description" id="description" rows="4" cols="50"><?php if(isset($description)) echo $description; ?></textarea><br>
   <label for="address">Address:</label>
   <input type="text" name="address" id="address" value="<?php if(isset($address)) echo $address; ?>"><br>
   <label for="city">City:</label>
