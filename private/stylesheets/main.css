@@ -11,7 +11,7 @@ body {
 
 /**Hide Errors to Users**/
 .xdebug-error {
-  display: none;
+  /* display: none; */
 }
 
 #banner {
@@ -215,6 +215,38 @@ h3 {
   text-align: center;
 }
 
+/****** Trails ******/
+/* ul ul {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* list-style: none; */
+  /* padding: 20px; */
+/* } */
+.trailGrid:first-of-type {
+  font-weight: bold;
+}
+
+.trailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 2px dotted #01A8B7;
+  text-align: center;
+}
+
+.trailGrid p {
+  margin: 20px 0 0 0px;
+}
+
+.trailGrid p:nth-of-type(2) {
+  text-transform: uppercase;
+}
+
+.trailGrid p:nth-of-type(3) {
+  text-transform: capitalize;
+}
+
+
 /****** Prices ******/
 .tabs {
   margin: 10px auto;
@@ -222,7 +254,7 @@ h3 {
   text-align: center;
 }
 
-#tab1, #tab2, #tab3 {
+#tab1, #tab2, #tab3, #tab4, #tab5 {
   background: #01A8B7;
   border: 1px solid #000;
   border-radius: 5px;
@@ -234,11 +266,11 @@ h3 {
   text-align: center;
 }
 
-#tab1:hover, #tab2:hover, #tab3:hover {
+#tab1:hover, #tab2:hover, #tab3:hover, #tab4:hover, #tab5:hover {
   background: #4EEFFD;
 }
 
-#tab1Content, #tab2Content, #tab3Content {
+#tab1Content, #tab2Content, #tab3Content, #tab4Content, #tab5Content {
   padding: 20px;
   border-radius: 10px;
 }
@@ -247,7 +279,7 @@ h3 {
  display: block; 
 }
 
-#tab2Content, #tab3Content {
+#tab2Content, #tab3Content, #tab4Content, #tab5Content {
  display: none; 
 }
 
@@ -370,8 +402,6 @@ button {
 .delete_button button {
   background-color: red;
 }
-
-
 
 /****** Gallery ******/
 #posts {

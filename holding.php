@@ -1,126 +1,179 @@
+<?php
+include_once('../../private/initialize.php');
+?>
+<span id="trails">
+<?php
+include_once(SHARED_PATH . '/admin_header.php');
+$page_title = 'Admin Trails';
+check_admin_login();
+?>
+<main>
+<h2><?php echo $page_title; ?></h2>
+<div>
+  <h3>Cataloochie Ski Resort</h3>
+  <ul>
+    <li>Open:</li>
+    <ul>
+  <?php
+  $sql = "SELECT * FROM trail WHERE resort_id = 1";
+  $open1 = array();
+  $closed1 = array();
 
-<table>
-    <caption><?php echo $nameRow[0]; ?></caption>
-    <tr>
-      <th>Price for</th>
-      <th>Price</th>
-    </tr>
-      <?php
-      foreach(array_combine($categoryRow1, $priceRow1) as $category => $price) {
-        echo "<tr><td>" . $category . "</td><td>" . $price . "</td></tr>";
+  $result = mysqli_query($database, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      $trail_id = $row["trail_id"];
+      if($row['is_open'] == 1) {
+        $open1[$row["trail_id"]] = $row["trail_name"];
+      } else {
+        $closed1[$row["trail_id"]] = $row["trail_name"];
       }
-      ?>
-  </table>
+    }
+  }
+  loop_trails($open1);
+  ?>
+    </ul>
+    <li>Closed:</li>
+    <ul>
+      
+  <?php
+  loop_trails($closed1);
+  ?>
 
-  <table>
-    <caption><?php echo $nameRow[1]; ?></caption>
-    <tr>
-      <th>Price for</th>
-      <th>Price</th>
-    </tr>
-      <?php
-      foreach(array_combine($categoryRow2, $priceRow2) as $category => $price) {
-        echo "<tr><td>" . $category . "</td><td>" . $price . "</td></tr>";
-      }
-      ?>
-  </table>
+  </ul>
+</div>
 
-  <table>
-    <caption><?php echo $nameRow[2]; ?></caption>
-    <tr>
-      <th>Price for</th>
-      <th>Price</th>
-    </tr>
-      <?php
-      foreach(array_combine($categoryRow3, $priceRow3) as $category => $price) {
-        echo "<tr><td>" . $category . "</td><td>" . $price . "</td></tr>";
-      }
-      ?>
-  </table>
+<div>
+  <h3>Sugar Mountain Resort</h3>
+  <ul>
+    <li>Open:</li>
+    <ul>
+  <?php
+  $sql = "SELECT * FROM trail WHERE resort_id = 2";
+  $open2 = array();
+  $closed2 = array();
 
-  <table>
-    <caption><?php echo $nameRow[3]; ?></caption>
-    <tr>
-      <th>Price for</th>
-      <th>Price</th>
-    </tr>
-      <?php
-      foreach(array_combine($categoryRow4, $priceRow4) as $category => $price) {
-        echo "<tr><td>" . $category . "</td><td>" . $price . "</td></tr>";
+  $result = mysqli_query($database, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      if($row['is_open'] == 1) {
+        $open2[$row["trail_id"]] = $row["trail_name"];
+      } else {
+        $closed2[$row["trail_id"]] = $row["trail_name"];
       }
-      ?>
-  </table>
+    }
+  }
+  loop_trails($open2);
+  ?>
+    </ul>
+    <li>Closed:</li>
+    <ul>
+      
+  <?php
+  loop_trails($closed2);
+  ?>
 
-  <table>
-    <caption><?php echo $nameRow[4]; ?></caption>
-    <tr>
-      <th>Price for</th>
-      <th>Price</th>
-    </tr>
-      <?php
-      foreach(array_combine($categoryRow5, $priceRow5) as $category => $price) {
-        echo "<tr><td>" . $category . "</td><td>" . $price . "</td></tr>";
+  </ul>
+</div>
+
+<div>
+  <h3>Beech Mountain Resort</h3>
+  <ul>
+    <li>Open:</li>
+    <ul>
+  <?php
+  $sql = "SELECT * FROM trail WHERE resort_id = 3";
+  $open3 = array();
+  $closed3 = array();
+
+  $result = mysqli_query($database, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      if($row['is_open'] == 1) {
+        $open3[$row["trail_id"]] = $row["trail_name"];
+      } else {
+        $closed3[$row["trail_id"]] = $row["trail_name"];
       }
-      ?>
-  </table>
-  <div>
-    <table id="specials">
-      <caption>Specials</caption>
-      <tr>
-        <th>Resort</th>
-        <th>The special</th>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[0]; ?></td>
-        <td><?php echo $specials[0]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[1]; ?></td>
-        <td><?php echo $specials[1]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[2]; ?></td>
-        <td><?php echo $specials[2]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[3]; ?></td>
-        <td><?php echo $specials[3]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[4]; ?></td>
-        <td><?php echo $specials[4]; ?></td>
-      </tr>
-    </table>
-    <table>
-      <caption>Ages</caption>
-      <tr>
-        <th>Resort</th>
-        <th>Junior Age</th>
-        <th>Adult Age</th>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[0]; ?></td>
-        <td><?php echo $juniorAge[0]; ?></td>
-        <td><?php echo $adultAge[0]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[1]; ?></td>
-        <td><?php echo $juniorAge[1]; ?></td>
-        <td><?php echo $adultAge[1]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[2]; ?></td>
-        <td><?php echo $juniorAge[2]; ?></td>
-        <td><?php echo $adultAge[2]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[3]; ?></td>
-        <td><?php echo $juniorAge[3]; ?></td>
-        <td><?php echo $adultAge[3]; ?></td>
-      </tr>
-      <tr>
-        <td><?php echo $nameRow[4]; ?></td>
-        <td><?php echo $juniorAge[4]; ?></td>
-        <td><?php echo $adultAge[4]; ?></td>
-      </tr>
-    </table>
+    }
+  }
+  loop_trails($open3);
+  ?>
+    </ul>
+    <li>Closed:</li>
+    <ul>
+      
+  <?php
+  loop_trails($closed3);
+  ?>
+
+  </ul>
+</div>
+
+<div>
+  <h3>Appalachian Ski Mtn</h3>
+  <ul>
+    <li>Open:</li>
+    <ul>
+  <?php
+  $sql = "SELECT * FROM trail WHERE resort_id = 4";
+  $open4 = array();
+  $closed4 = array();
+
+  $result = mysqli_query($database, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      if($row['is_open'] == 1) {
+        $open4[$row["trail_id"]] = $row["trail_name"];
+      } else {
+        $closed4[$row["trail_id"]] = $row["trail_name"];
+      }
+    }
+  }
+  loop_trails($open4)
+  ?>
+    </ul>
+    <li>Closed:</li>
+    <ul>
+      
+  <?php
+  loop_trails($closed4);
+  ?>
+
+  </ul>
+</div>
+
+<div>
+  <h3>Wolf Ridge Ski Resort</h3>
+  <ul>
+    <li>Open:</li>
+    <ul>
+  <?php
+  $sql = "SELECT * FROM trail WHERE resort_id = 5";
+  $open5 = array();
+  $closed5 = array();
+
+  $result = mysqli_query($database, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      if($row['is_open'] == 1) {
+        $open5[$row["trail_id"]] = $row["trail_name"];
+      } else {
+        $closed5[$row["trail_id"]] = $row["trail_name"];
+      }
+    }
+  }
+  loop_trails($open5);
+  ?>
+    </ul>
+    <li>Closed:</li>
+    <ul>
+      
+  <?php
+  loop_trails($closed5);
+  ?>
+
+  </ul>
+</div>
+</div>
+</body>
+</html>
