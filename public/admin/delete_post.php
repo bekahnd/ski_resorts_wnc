@@ -7,6 +7,7 @@ check_admin_login();
 $tableName = "post";
 ?>
 
+<!-- Deletes post from gallery and displays success message. -->
 <h2>Delete Post</h2>
 <?php
 if(isset($_POST['submit'])) {

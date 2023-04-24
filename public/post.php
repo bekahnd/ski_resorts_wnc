@@ -10,12 +10,14 @@ $page_title = 'Post';
 if (isset($_GET['error'])): ?>
   <p><?php echo $_GET['error'] ?></p>
   <?php endif ?>
+  <!-- Form fro user to upload photo -->
 <form action="upload.php"method="post" enctype="multipart/form-data">
   <label id="media">Upload photo or video here.</label>
   <input type="file" id="media" name="media"><br>
   <label id="caption">Create a caption.</label>
   <input type="text" id ="caption" name="caption" placeholder="caption"><br>
 
+  <!-- Drop down for resorts -->
   <?php
   $sql = "SELECT resort_id, resort_name FROM resort";
   if($r_set=$database->query($sql)) {

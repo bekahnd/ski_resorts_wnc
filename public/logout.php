@@ -1,5 +1,6 @@
 <?php
 require('../private/initialize.php');
+// Log user out and redirect to login page.
 
 session_start();
 

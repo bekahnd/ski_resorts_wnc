@@ -9,15 +9,18 @@ $page_title = 'Trails';
 
 <h2><?php echo $page_title; ?></h2>
 <?php
+// Retrieve trail name, open status, and trail difficulty color from database
 $sql = "SELECT resort_id, trail_name, is_open, difficulty_level FROM trail INNER JOIN difficulty ON trail.difficulty_id = difficulty.difficulty_id";
-
 $result = mysqli_query($database, $sql);
+
+// Initialize variables - trail array for each resort
 $trails1 = array();
 $trails2 = array();
 $trails3 = array();
 $trails4 = array();
 $trails5 = array();
 
+// Initialize variables for resort 1 - number of trails for each difficulty and number of trails open/closed
 $green1 = 0;
 $blue1 = 0;
 $black1 = 0;
@@ -26,6 +29,7 @@ $terrain1 = 0;
 $num_trails_open1 = 0;
 $num_trails_closed1 = 0;
 
+// Initialize variables for resort 2 - number of trails for each difficulty and number of trails open/closed
 $green2 = 0;
 $blue2 = 0;
 $black2 = 0;
@@ -34,6 +38,7 @@ $terrain2 = 0;
 $num_trails_open2 = 0;
 $num_trails_closed2 = 0;
 
+// Initialize variables for resort 3 - number of trails for each difficulty and number of trails open/closed
 $green3 = 0;
 $blue3 = 0;
 $black3 = 0;
@@ -42,6 +47,7 @@ $terrain3 = 0;
 $num_trails_open3 = 0;
 $num_trails_closed3 = 0;
 
+// Initialize variables for resort 4 - number of trails for each difficulty and number of trails open/closed
 $green4 = 0;
 $blue4 = 0;
 $black4 = 0;
@@ -50,6 +56,7 @@ $terrain4 = 0;
 $num_trails_open4 = 0;
 $num_trails_closed4 = 0;
 
+// Initialize variables for resort 5 - number of trails for each difficulty and number of trails open/closed
 $green5 = 0;
 $blue5 = 0;
 $black5 = 0;
@@ -58,6 +65,8 @@ $terrain5 = 0;
 $num_trails_open5 = 0;
 $num_trails_closed5 = 0;
 
+// Run through each resort and create an array of the list of trail names, open status, and difficulty level for each.
+// Find number of trails for each difficulty level for each resort and get count of how many trails are open and closed.
 if (mysqli_num_rows($result) > 0) {
   while ($row =mysqli_fetch_assoc($result)) {
     if ($row['is_open'] == 0) {
@@ -187,6 +196,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 ?>
 
+<!-- Javascript for creating tabs for each resort -->
 <div class="tabs">
   <div id="tab1" onClick="Javascript:selectTab(1);">Cataloochie Ski Resort</div>
   <div id="tab2" onClick="Javascript:selectTab(2);">Sugar Mountain Resort</div>
@@ -194,6 +204,8 @@ if (mysqli_num_rows($result) > 0) {
   <div id="tab4" onClick="Javascript:selectTab(4);">Appalachian Ski MTN</div>
   <div id="tab5" onClick="Javascript:selectTab(5);">Wolf Ridge Ski Resort</div>
 </div>
+
+<!-- Display information for resort 1 -->
 <div id="tab1Content">
   <h3>Cataloochie Ski Resort</h3>
   <table>
@@ -229,6 +241,7 @@ if (mysqli_num_rows($result) > 0) {
   }
   ?>
 </div>
+<!-- Display information for resort 2 -->
 <div id="tab2Content">
 <h3>Sugar Mountain Resort</h3>
 <table>
@@ -264,6 +277,7 @@ if (mysqli_num_rows($result) > 0) {
   }
   ?>
 </div>
+<!-- Display information for resort 3 -->
 <div id="tab3Content">
 <h3>Beech Mountain Resort</h3>
 <table>
@@ -299,6 +313,7 @@ if (mysqli_num_rows($result) > 0) {
   }
   ?>
 </div>
+<!-- Display information for resort 4 -->
 <div id="tab4Content">
   <h3>Appalachian Ski MTN</h3>
   <table>
@@ -334,6 +349,7 @@ if (mysqli_num_rows($result) > 0) {
   }
   ?>
 </div>
+<!-- Display information for resort 5 -->
 <div id="tab5Content">
   <h3>Wolf Ridge Ski Resort</h3>
   <table>

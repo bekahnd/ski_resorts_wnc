@@ -19,10 +19,12 @@ $page_title = 'Home';
       </div>
 
         <?php
+        // Get resort information from database for Cataloochie
         $sql = "SELECT * FROM resort WHERE resort_id = 1";
 
         $results = mysqli_query($database, $sql);
 
+        // initialize variables for Cataloochie
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $name1 = $row['resort_name'];
@@ -40,10 +42,13 @@ $page_title = 'Home';
           $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for Sugar
         $sql = "SELECT * FROM resort WHERE resort_id = 2";
 
         $results = mysqli_query($database, $sql);
 
+        
+        // initialize variables for Sugar
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $name2 = $row['resort_name'];
@@ -61,10 +66,13 @@ $page_title = 'Home';
           $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for Beech
         $sql = "SELECT * FROM resort WHERE resort_id = 3";
 
         $results = mysqli_query($database, $sql);
 
+        
+        // initialize variables for Beech
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $name3 = $row['resort_name'];
@@ -82,10 +90,13 @@ $page_title = 'Home';
           $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for App
         $sql = "SELECT * FROM resort WHERE resort_id = 4";
 
         $results = mysqli_query($database, $sql);
 
+        
+        // initialize variables for App
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $name4 = $row['resort_name'];
@@ -103,10 +114,13 @@ $page_title = 'Home';
           $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for Wolf
         $sql = "SELECT * FROM resort WHERE resort_id = 5";
 
         $results = mysqli_query($database, $sql);
 
+        
+        // initialize variables for Wolf
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $name5 = $row['resort_name'];
@@ -125,6 +139,7 @@ $page_title = 'Home';
         }
         ?>
 
+      <!-- Display Cataloochie resort information -->
       <div id="resortDescriptions">
         <div id="resortDesc">
           <h3><?php echo $name1; ?></h3>
@@ -136,6 +151,7 @@ $page_title = 'Home';
           <p id="trail_number">Number of trails: <?php echo $trailNum1 . "."; ?></p>
         </div>
 
+        <!-- Display Sugar resort information -->
         <div id="resortDesc">
           <h3><?php echo $name2; ?></h3>
           <p id="description"><?php echo $description2; ?></p>
@@ -146,6 +162,7 @@ $page_title = 'Home';
           <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
         </div>
 
+        <!-- Display Beech resort information -->
         <div id="resortDesc">
           <h3><?php echo $name3; ?></h3>
           <p id="description"><?php echo $description3; ?></p>
@@ -156,6 +173,7 @@ $page_title = 'Home';
           <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
         </div>
 
+        <!-- Display App resort information -->
         <div id="resortDesc">
           <h3><?php echo $name4; ?></h3>
           <p id="description"><?php echo $description4; ?></p>
@@ -166,6 +184,7 @@ $page_title = 'Home';
           <p id="trail_number">Number of trails: <?php echo $trailNum4 . "."; ?></p>
         </div>
 
+        <!-- Display Wolf resort information -->
         <div id="resortDesc">
           <h3><?php echo $name5; ?></h3>
           <p id="description"><?php echo $description5; ?></p>

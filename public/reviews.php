@@ -7,9 +7,10 @@ $page_title = 'Reviews';
 
 <h2><?php echo $page_title; ?></h2>
 <?php
+// Api key for Google reviews
 $api_key = 'AIzaSyA6LefrzlhKHmkKApqOyu7UeQJwnN2RDfQ';
 
-//  For Cataloochie
+//  Information to retrieve reviews For Cataloochie
 $place_id1 = 'ChIJmcmzdUhlWYgRAxhRGkjMMI0';
 
 $url1 = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$place_id1&fields=name,rating,review&key=$api_key";
@@ -20,6 +21,7 @@ $data1 = json_decode($response1, true);
 <h3>Cataloochi Ski Resort</h3>
 
 <?php
+// Displays the reviews
 $reviews1 = $data1['result']['reviews'];
 foreach ($reviews1 as $review1) {
   $author_name = $review1['author_name'];
@@ -30,17 +32,18 @@ foreach ($reviews1 as $review1) {
   echo "<p>$text</p>";
 }
 ?>
+<!-- Add link to google reviews page for Cataloochie -->
 <p>Want to see more reviews for Cataloochie Ski Resort? Click <a href='https://rb.gy/gq2h4s' target='_blank'>here</a>.</p>
 
  <!-- For Sugar Mountain -->
 <h3>Sugar Mountain Resort</h3>
 <?php
-$place_id2 = 'ChIJS0CVeDDtUIgRWVxsoPWHT20';
-
+//  Information to retrieve reviews For Sugar
 $url2 = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$place_id2&fields=name,rating,review&key=$api_key";
 $response2 = file_get_contents($url2);
 $data2 = json_decode($response2, true);
 
+// Displays the reviews
 $reviews2 = $data2['result']['reviews'];
 foreach ($reviews2 as $review2) {
   $author_name = $review2['author_name'];
@@ -51,18 +54,21 @@ foreach ($reviews2 as $review2) {
   echo "<p>$text</p>";
 }
 ?>
+<!-- Add link to google reviews page for Sugar -->
 <p>Want to see more reviews for Sigar Mountain Resort? Click <a href='https://rb.gy/ewfm3m' target='_blank'>here</a>.</p>
 
  <!-- For Beech Mountain -->
 <h3>Beech Mountain Resort</h3>
 
 <?php
+//  Information to retrieve reviews For Beech
 $place_id3 = 'ChIJQ4TGUyWNUIgR2hLCPRNmIs0';
 
 $url3 = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$place_id3&fields=name,rating,review&key=$api_key";
 $response3 = file_get_contents($url3);
 $data3 = json_decode($response3, true);
 
+// Displays the reviews
 $reviews3 = $data3['result']['reviews'];
 foreach ($reviews3 as $review3) {
   $author_name = $review3['author_name'];
@@ -73,18 +79,21 @@ foreach ($reviews3 as $review3) {
   echo "<p>$text</p>";
 }
 ?>
+<!-- Add link to google reviews page for Beech -->
 <p>Want to see more reviews for Beech Mountain Resort Click <a href='https://rb.gy/h7jtuo' target='_blank'>here</a>.</p>
 
  <!-- For Appalachian Ski Mtn -->
 <h3>Appalachian Ski Mtn</h3>
 
 <?php
+//  Information to retrieve reviews For App
 $place_id4 = 'ChIJK-1GHO_6UIgRDd1TE4S7M4Q';
 
 $url4 = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$place_id4&fields=name,rating,review&key=$api_key";
 $response4 = file_get_contents($url4);
 $data4 = json_decode($response4, true);
 
+// Display reviews for App
 $reviews4 = $data4['result']['reviews'];
 foreach ($reviews4 as $review4) {
   $author_name = $review4['author_name'];
@@ -95,18 +104,21 @@ foreach ($reviews4 as $review4) {
   echo "<p>$text</p>";
 }
 ?>
+<!-- Add link to google reviews page for App -->
 <p>Want to see more reviews for Appalachian Ski Mtn Click <a href='https://rb.gy/qu1shx' target='_blank'>here</a>.</p>
 
 <!--  For Wolf Ridge  -->
 <h3>Wolf Ridge Ski Resort</h3>
 
 <?php
+//  Information to retrieve reviews For Wolf
 $place_id5 = 'ChIJbdVLazAUWogRqgSBSMDascg';
 
 $url5 = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$place_id5&fields=name,rating,review&key=$api_key";
 $response5 = file_get_contents($url5);
 $data5 = json_decode($response5, true);
 
+// Display reviews for Wolf
 $reviews5 = $data5['result']['reviews'];
 foreach ($reviews5 as $review5) {
   $author_name = $review5['author_name'];
@@ -117,6 +129,7 @@ foreach ($reviews5 as $review5) {
   echo "<p>$text</p>";
 }
 ?>
+<!-- Add link to google reviews page for Wolf -->
 <p>Want to see more reviews for Wolf Ridge Ski Resort Click <a href='https://rb.gy/q9snwk' target='_blank'>here</a>.</p>
 
   <?php

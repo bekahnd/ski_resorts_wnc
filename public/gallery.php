@@ -8,9 +8,11 @@ check_member_login();
 $page_title = 'Gallery';
 ?>
 <h2><?php echo $page_title; ?></h2>
+<!-- Button for users to add a post to the website -->
 <a href="post.php" id="postButton">&#43; Create Post</a>
 <div id="posts">
 <?php
+// Grabs all posts and displays them from newest to oldest with username and caption
 $sql = "SELECT * FROM post, member WHERE post.member_id=member.member_id ORDER BY post_id DESC";
 $result = mysqli_query($database, $sql);
 

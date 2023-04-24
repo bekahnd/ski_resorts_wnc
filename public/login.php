@@ -3,13 +3,14 @@ include_once('../private/initialize.php');
 include_once(SHARED_PATH . '/public_header.php');
 $page_title = 'Login';
 
+// Initializes username and password based on user submission
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
   $errors[] = '';
 
-  // Validations
+  // Validations for blank username and password
   if(is_blank($username)) {
     $errors[] = "Username cannot be blank.";
   }
@@ -17,6 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors[] = "Password cannot be blank.";
   }
 
+  // Get username and matching hashed password from database and checks it
   $sqlHash = "SELECT * FROM member WHERE username = '".$username."'";
 
   $result = mysqli_query($database, $sqlHash);
@@ -29,7 +31,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   $hashed_password = password_verify($password, $the_hashed_password);
   
 
-
+// Error messages
+// If no errors, checks whether user is an admin or general user and redirects to appropriate page
 if(!$hashed_password) {
   if(!$the_hashed_password) {
     echo "<p id='failed'>Username not found.</p>";
@@ -54,7 +57,7 @@ if(!$hashed_password) {
 }
 }
 ?>
- 
+ <!-- Display Login form  -->
   <div id="login">
     <h2>Login</h2>
     <form action="login.php" method="POST" id="loginForm">

@@ -21,10 +21,12 @@ check_admin_login();
       </div>
 
         <?php
+        // Get resort information from database for Cataloochie
         $sql = "SELECT * FROM resort WHERE resort_id = 1";
 
         $results = mysqli_query($database, $sql);
 
+        // initialize variables for Cataloochie
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $resortId1= $row['resort_id'];
@@ -43,10 +45,12 @@ check_admin_login();
           // $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for Sugar
         $sql = "SELECT * FROM resort WHERE resort_id = 2";
 
         $results = mysqli_query($database, $sql);
 
+        // initialize variables for Sugar
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $resortId2= $row['resort_id'];
@@ -65,10 +69,12 @@ check_admin_login();
           // $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for Beech
         $sql = "SELECT * FROM resort WHERE resort_id = 3";
 
         $results = mysqli_query($database, $sql);
 
+        // initialize variables for Beech
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $resortId3= $row['resort_id'];
@@ -87,10 +93,12 @@ check_admin_login();
           // $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for App
         $sql = "SELECT * FROM resort WHERE resort_id = 4";
 
         $results = mysqli_query($database, $sql);
 
+        // initialize variables for App
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $resortId4= $row['resort_id'];
@@ -109,10 +117,12 @@ check_admin_login();
           // $row = mysqli_fetch_assoc($results);
         }
 
+        // Get resort information from database for Wolf
         $sql = "SELECT * FROM resort WHERE resort_id = 5";
 
         $results = mysqli_query($database, $sql);
 
+        // initialize variables for Wolf
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
             $resortId5= $row['resort_id'];
@@ -132,6 +142,7 @@ check_admin_login();
         }
         ?>
 
+      <!-- Display Cataloochie information -->
       <div id="resortDescriptions">
         <div id="resortDesc">
           <h3><?php echo $name1; ?></h3>
@@ -141,6 +152,7 @@ check_admin_login();
           <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening1 . "-" . $weekendClosing1 . "."; ?></p>
           <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening1 . "-" . $weekdayClosing1 . "."; ?></p>
           <p id="trail_number">Number of trails: <?php echo $trailNum1 . "."; ?></p>
+          <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
             echo "<input type='hidden' name='id' value='" . $resortId1 . "'>";
@@ -149,6 +161,7 @@ check_admin_login();
           </form>
         </div>
 
+        <!-- Display Suagr information -->
         <div id="resortDesc">
           <h3><?php echo $name2; ?></h3>
           <p id="description"><?php echo $description2; ?></p>
@@ -157,6 +170,7 @@ check_admin_login();
           <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening2 . "-" . $weekendClosing2 . "."; ?></p>
           <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening2 . "-" . $weekdayClosing2 . "."; ?></p>
           <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
             echo "<input type='hidden' name='id' value='" . $resortId2 . "'>";
@@ -165,6 +179,7 @@ check_admin_login();
           </form>
         </div>
 
+        <!-- Display Beech information -->
         <div id="resortDesc">
           <h3><?php echo $name3; ?></h3>
           <p id="description"><?php echo $description3; ?></p>
@@ -173,6 +188,7 @@ check_admin_login();
           <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening3 . "-" . $weekendClosing3 . "."; ?></p>
           <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening3 . "-" . $weekdayClosing3 . "."; ?></p>
           <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
             echo "<input type='hidden' name='id' value='" . $resortId3 . "'>";
@@ -181,6 +197,7 @@ check_admin_login();
           </form>
         </div>
 
+        <!-- Display App information -->
         <div id="resortDesc">
           <h3><?php echo $name4; ?></h3>
           <p id="description"><?php echo $description4; ?></p>
@@ -189,6 +206,7 @@ check_admin_login();
           <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening4 . "-" . $weekendClosing4 . "."; ?></p>
           <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening4 . "-" . $weekdayClosing4 . "."; ?></p>
           <p id="trail_number">Number of trails: <?php echo $trailNum4 . "."; ?></p>
+          <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
             echo "<input type='hidden' name='id' value='" . $resortId4 . "'>";
@@ -197,6 +215,7 @@ check_admin_login();
           </form>
         </div>
 
+        <!-- Display Wolf information -->
         <div id="resortDesc">
           <h3><?php echo $name5; ?></h3>
           <p id="description"><?php echo $description5; ?></p>
@@ -205,6 +224,7 @@ check_admin_login();
           <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening5 . "-" . $weekendClosing5 . "."; ?></p>
           <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening5 . "-" . $weekdayClosing5 . "."; ?></p>
           <p id="trail_number">Number of trails: <?php echo $trailNum5 . "."; ?></p>
+          <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
             echo "<input type='hidden' name='id' value='" . $resortId5 . "'>";

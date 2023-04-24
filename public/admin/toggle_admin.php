@@ -9,6 +9,7 @@ $tableName = "member";
 if(isset($_POST['submit'])) {
   $id = $_POST['id'];
 
+  // grabs admin status and username from database
   $sql = "SELECT is_admin, username FROM $tableName WHERE member_id=$id";
   $result = mysqli_query($database, $sql);
   $row = $result->fetch_assoc();
@@ -16,7 +17,7 @@ if(isset($_POST['submit'])) {
   $is_admin = $row["is_admin"];
   $username = $row["username"];
 
-  // Set new value to opposite of current value
+  // Set new admin value to opposite of current value (toggle) and update the database
   if($is_admin === '1') {
     $new_value = 0;
   } else {
@@ -25,12 +26,13 @@ if(isset($_POST['submit'])) {
   $sql = "UPDATE " . $tableName . " SET is_admin=" . $new_value . " WHERE member_id=" . $id . "";
   $result = mysqli_query($database, $sql);
 
-  // Message to display
+  // Display confirmation message
   if($new_value === 1) {
     echo "<p>" . $username . " has been changed to admin member.</p>";
   } else {
     echo "<p>" . $username . " has been changed to general member.</p>";
   }
+  // button to go back to members list (admin_home)
   echo "<button id='toggle'><a href='" . url_for('public/admin/admin_home.php') . "' id='toggleA'>&lt; &lt; Back to members list.</a></button>";
 }
 

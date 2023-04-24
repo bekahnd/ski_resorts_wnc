@@ -7,7 +7,7 @@ $page_title = 'Create an Account';
 <?php
 
 include_once(SHARED_PATH . '/public_header.php');
-
+// Assign variables based on user submission
 if(is_post_request()) {
   $first_name = $_POST["fname"];
   $last_name = $_POST["lname"];
@@ -19,6 +19,8 @@ if(is_post_request()) {
   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
   $duplicate = mysqli_query($database, "SELECT * FROM member WHERE username = '$username' or email = '$email'");
 
+  // Personalized error messages
+  // If no errors then insert new member into database
   if(mysqli_num_rows($duplicate) > 0) {
     echo "<p id='failed'>Username or Email has already been taken.</p>"; 
   } elseif($state_id == 'Choose State') {
@@ -38,7 +40,7 @@ if(is_post_request()) {
 
 ?>
 
-
+<!-- Form for user registration -->
 <div id="login">
   <h2>Create an Account</h2>
   <p>*Please fill out all fields.</p>
@@ -64,5 +66,6 @@ if(is_post_request()) {
     <button type="submit" name="submit">Create Account</button>
     
   </form>
+  <!-- Link to login if user already has an account -->
   <p>Already have an account? Click <a href="login.php">here</a> to login.</p>
 </div>

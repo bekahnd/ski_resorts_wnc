@@ -10,11 +10,11 @@ $tableName = "resort";
 <h2>Edit Resort Description</h2>
 
 <?php
+// gets information from database based on resort id and initialized variables
 if(isset($_POST['submit'])) {
   $id = $_POST['id'];
   $sql = "SELECT * FROM $tableName WHERE resort_id=$id";
   $result = mysqli_query($database, $sql);
-  // print_r($result);
   if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
       // print_r($row);
@@ -30,10 +30,10 @@ if(isset($_POST['submit'])) {
       $weekdayOpening = $row['opening_hour_weekday'];
       $weekdayClosing = $row['closing_hour_weekday'];
     }
-    // $row = mysqli_fetch_assoc($results);
   }
 }
 ?>
+<!-- Form for admin to edit values of any field to be updated in the database -->
 <form method="post" action="make_edits.php">
   <label for="resortName">Resort Name:</label>
   <input type="text" name="resortName" id="resortName" value="<?php echo $resortName; ?>"><br>

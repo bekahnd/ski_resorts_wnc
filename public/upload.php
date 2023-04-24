@@ -6,11 +6,13 @@ $page_title = 'Upload';
 ?>
 
 <?php
+// Check if post was submitted
 if (isset($_POST['submit']) && isset($_FILES['media'])) {
   echo "<pre>";
   print_r($_FILES['media']);
   echo "</pre>";
 
+  // Add username of user who made post
   $username = $_SESSION['username'];
   echo "username: " . $username;
   echo "<br>";
@@ -25,7 +27,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
 
   echo "<br>";
 
-
+  // Initialize variables base on what user submitted
   $resort_id = $_POST['resort'];
   echo "resort id: " . $resort_id;
   $caption = $_POST['caption'];
@@ -34,6 +36,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
   $tmp_name = $_FILES['media']['tmp_name'];
   $error = $_FILES['media']['error'];
 
+  // Create error specialized messages and insert to database if no errors
   if ($error === 0) {
     if ($img_size > 500000) {
       $em = "Sorry, your file is too large.";
@@ -69,7 +72,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
   }
 
 } else {
-  echo "Hi";
+  echo "";
 }
 
 ?>

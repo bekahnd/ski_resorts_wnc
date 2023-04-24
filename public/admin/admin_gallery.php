@@ -11,6 +11,7 @@ check_admin_login();
 <a href="../post.php" id="postButton">&#43; Create Post</a>
 <div id="posts">
 <?php
+// Grabs all posts from database and displays them from newest to oldest
 $sql = "SELECT * FROM post, member WHERE post.member_id=member.member_id ORDER BY post_id DESC";
 $result = mysqli_query($database, $sql);
 
@@ -19,6 +20,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
     <div id="alb">
       <img src="../images/<?=$images['media_url']?>">
+      <!-- Adds delete button for admin to delete a post when they hover over the image -->
       <form method="post" action="delete_post.php">
         <input type="hidden" name="id" value='<?=$images['post_id']?>'>
         <div class="delete_button">

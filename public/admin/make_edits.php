@@ -6,9 +6,7 @@ check_admin_login();
 
 $tableName = "resort";
 
-
-// echo "<h2>Edits have been made successfully.</h2>";
-
+// Initializes variables based on POST submission
 if(isset($_POST['submit'])) {
   $id = $_POST['id'];
   $resortName = $_POST['resortName'];
@@ -23,6 +21,7 @@ if(isset($_POST['submit'])) {
   $weekdayOpening = $_POST['weekdayOpening'];
   $weekdayClosing = $_POST['weekdayClosing'];
 
+  // Updates database with new values
   $sql = "UPDATE $tableName SET resort_name='$resortName', description='$description', address='$address', city='$city', zip='$zip', phone='$phone', trail_number='$trailNumber', opening_hour_weekend='$weekendOpening', closing_hour_weekend='$weekendClosing', opening_hour_weekday='$weekdayOpening', closing_hour_weekday='$weekdayClosing' WHERE resort_id=$id";
   $result = mysqli_query($database, $sql);
   echo "<h3>The changes have been made and saved to the database. Check below for current values.</h3>";

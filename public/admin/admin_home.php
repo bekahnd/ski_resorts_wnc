@@ -9,10 +9,12 @@ check_admin_login();
 ?>
 
 <?php
+// Grab all members and their information from database
 $sqlMember = "SELECT * FROM member";
 $resultMember = mysqli_query($database, $sqlMember);
 ?>
 
+<!-- Display all members and their information (other than passwords) in a table -->
 <h2>Table of Members</h2>
 <form method="get" action="../search.php">
   <label for="search">Search user:</label>
@@ -46,6 +48,7 @@ if(mysqli_num_rows($resultMember) > 0) {
     echo "<td>" . $row['email'] . "</td>";
     echo "<td>" . $date->format('Y-m-d') . "</td>";
     echo "<td>" . $admin . "</td>";
+    // Form for toggle admin button where admin users can change the status of any member
     echo "<td><form method='post' action='toggle_admin.php'>";
     echo "  <input type='hidden' name='id' value='" . $row['member_id'] ."'>";
     echo "  <button type='submit' name='submit'>Toggle Admin</button>";
