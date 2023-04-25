@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-    <title>Ski Resorts<abbr title="Western North Carolina">WNC <?php if(isset($page_title)) {
+    <title>Ski Resorts WNC <?php if(isset($page_title)) {
       echo '- ' . $page_title; } ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../private/stylesheets/main.css">

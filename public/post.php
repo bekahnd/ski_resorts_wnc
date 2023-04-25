@@ -1,6 +1,6 @@
 <?php
 include_once('../private/initialize.php');
-$page_title = 'Share Post';
+$page_title = 'Create Post';
 include_once(SHARED_PATH . '/public_header.php');
 check_member_login();
 ?>
