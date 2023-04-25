@@ -3,8 +3,8 @@ include_once('../../private/initialize.php');
 ?>
 <span id="gallery">
 <?php
-include_once(SHARED_PATH . '/admin_header.php');
 $page_title = 'Admin Gallery';
+include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
 ?>
 <h2><?php echo $page_title; ?></h2>

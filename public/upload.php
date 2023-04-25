@@ -1,8 +1,8 @@
 <?php
 include_once('../private/initialize.php');
+$page_title = 'Upload';
 include_once(SHARED_PATH . '/public_header.php');
 check_member_login();
-$page_title = 'Upload';
 ?>
 
 <?php
@@ -14,16 +14,16 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
 
   // Add username of user who made post
   $username = $_SESSION['username'];
-  echo "username: " . $username;
+  echo "username: " . h($username);
   echo "<br>";
 
-  $sqlId = "SELECT member_id FROM member WHERE username= '".$username."'";
+  $sqlId = "SELECT member_id FROM member WHERE username= '".h($username)."'";
 
   $resultId = mysqli_query($database, $sqlId);
 
   $member_id = $resultId->fetch_array()[0] ?? '';
 
-  echo "member id: " . $member_id;
+  echo "member id: " . h($member_id);
 
   echo "<br>";
 

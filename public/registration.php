@@ -9,14 +9,14 @@ $page_title = 'Create an Account';
 include_once(SHARED_PATH . '/public_header.php');
 // Assign variables based on user submission
 if(is_post_request()) {
-  $first_name = $_POST["fname"];
-  $last_name = $_POST["lname"];
-  $username = $_POST["uname"];
-  $password = $_POST["password"];
-  $confirm_password = $_POST["confirm_password"];
-  $email = $_POST["email"];
-  $state_id = $_POST["state"];
-  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+  $first_name = h($_POST["fname"]);
+  $last_name = h($_POST["lname"]);
+  $username = h($_POST["uname"]);
+  $password = h($_POST["password"]);
+  $confirm_password = h($_POST["confirm_password"]);
+  $email = h($_POST["email"]);
+  $state_id = h($_POST["state"]);
+  $hashed_password = password_hash(h($password), PASSWORD_DEFAULT);
   $duplicate = mysqli_query($database, "SELECT * FROM member WHERE username = '$username' or email = '$email'");
 
   // Personalized error messages
@@ -45,12 +45,12 @@ if(is_post_request()) {
   <h2>Create an Account</h2>
   <p>*Please fill out all fields.</p>
   <form action="" method="post">
-    <input type="text" name="fname" id="fname" value="<?php if (isset($first_name)) echo $first_name; ?>" placeholder="First Name" required><br>
-    <input type="text" name="lname" id="lname" value="<?php if (isset($last_name)) echo $last_name; ?>" placeholder="Last Name" required><br>
-    <input type="text" name="uname" id="uname" value="<?php if (isset($username)) echo $username; ?>" placeholder="Username" required><br>
-    <input type="password" name="password" id="password" value="<?php if (isset($password)) echo $password; ?>" placeholder="Password" required><br>
-    <input type="password" name="confirm_password" id="confirm_password" value="<?php if (isset($confirm_password)) echo $confirm_password; ?>" placeholder="Confirm Password" required><br>
-    <input type="email" name="email" id="email" value="<?php if (isset($email)) echo $email; ?>" placeholder="Email" required><br>
+    <input type="text" name="fname" id="fname" value="<?php if (isset($first_name)) echo h($first_name); ?>" placeholder="First Name" required><br>
+    <input type="text" name="lname" id="lname" value="<?php if (isset($last_name)) echo h($last_name); ?>" placeholder="Last Name" required><br>
+    <input type="text" name="uname" id="uname" value="<?php if (isset($username)) echo h($username); ?>" placeholder="Username" required><br>
+    <input type="password" name="password" id="password" value="<?php if (isset($password)) echo h($password); ?>" placeholder="Password" required><br>
+    <input type="password" name="confirm_password" id="confirm_password" value="<?php if (isset($confirm_password)) echo h($confirm_password); ?>" placeholder="Confirm Password" required><br>
+    <input type="email" name="email" id="email" value="<?php if (isset($email)) echo h($email); ?>" placeholder="Email" required><br>
     <label for="state">*State:</label>
     <?php $sql = "SELECT state_id, state_abbreviation FROM state ";
     if($r_set=$database->query($sql)) {

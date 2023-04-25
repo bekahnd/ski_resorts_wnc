@@ -3,8 +3,8 @@ include_once('../../private/initialize.php');
 ?>
 <span id="admin_home">
 <?php
+$page_title = 'Member List';
 include_once(SHARED_PATH . '/admin_header.php');
-$page_title = 'Admin Home';
 check_admin_login();
 ?>
 

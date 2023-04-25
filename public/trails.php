@@ -2,9 +2,9 @@
 
 <?php
 include_once('../private/initialize.php');
+$page_title = 'Trails';
 include_once(SHARED_PATH . '/public_header.php');
 check_member_login();
-$page_title = 'Trails';
 ?>
 
 <h2><?php echo $page_title; ?></h2>
@@ -357,7 +357,7 @@ if (mysqli_num_rows($result) > 0) {
       <th>Green</th>
       <th>Blue</th>
       <th>Black</th>
-      <th>Double Black</th>
+      <th>Double Black</t
       <th>Terrain Park</th>
       <th>Open Trails</th>
       <th>Closed Trails</th>

@@ -13,6 +13,10 @@ function url_for($script_path) {
   return WWW_ROOT . $script_path;
 }
 
+function u($string="") {
+  return urlencode($string);
+}
+
 function h($string="") {
   return htmlspecialchars($string);
 }
@@ -70,10 +74,6 @@ function display_errors($errors=array()) {
   return $output;
 }
 
-function loop_trails($array) {
-  foreach($array as $key => $value) {
-    echo "<li>" . $value . "<form method='post' action='toggle_trails.php'><input type='hidden' name='id' value='" . $key . "'><button type='submit' name='submit'>Mark Trail Closed</button></form></li>";
-  }
-}
+
 
 ?>

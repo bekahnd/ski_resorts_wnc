@@ -16,7 +16,7 @@
           <?php check_logged_in(); ?>
         </div>     
         <a href="https://www.flaticon.com/free-icons/skier" title="skier icons"><img src="../../private/images/6435116.png" id="icon" alt="Skier icons created by Freepik - Flaticon" width="50" height="50"></a>
-        <h1><abbr title="Western North Carolina">WNC</abbr> Ski Resorts - Admin View</h1>
+        <h1><abbr title="Western North Carolina">WNC</abbr> Ski Resorts <?php if(isset($page_title)) { echo '- ' . $page_title; } ?></h1>
 
         <nav role="navigation">
             <label for="nav-checkbox" id="nav-trigger">Menu</label>

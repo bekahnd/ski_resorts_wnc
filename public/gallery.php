@@ -3,9 +3,9 @@ include_once('../private/initialize.php'); ?>
 
 <span id="gallery">
 <?php
+$page_title = 'Gallery';
 include_once(SHARED_PATH . '/public_header.php');
 check_member_login();
-$page_title = 'Gallery';
 ?>
 <h2><?php echo $page_title; ?></h2>
 <!-- Button for users to add a post to the website -->
