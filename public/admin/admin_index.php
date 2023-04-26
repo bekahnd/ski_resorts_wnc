@@ -29,18 +29,18 @@ check_admin_login();
         // initialize variables for Cataloochie
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
-            $resortId1= $row['resort_id'];
-            $name1 = $row['resort_name'];
-            $address1 = $row['address'];
-            $city1 = $row['city'];
-            $zip1 = $row['zip']; 
-            $phone1 = $row['phone'];
-            $trailNum1 = $row['trail_number'];
-            $weekendOpening1 = $row['opening_hour_weekend'];
-            $weekendClosing1 = $row['closing_hour_weekend'];
-            $weekdayOpening1 = $row['opening_hour_weekday'];
-            $weekdayClosing1 = $row['closing_hour_weekday'];
-            $description1 = $row['description'];
+            $resortId1= h($row['resort_id']);
+            $name1 = h($row['resort_name']);
+            $address1 = h($row['address']);
+            $city1 = h($row['city']);
+            $zip1 = h($row['zip']); 
+            $phone1 = h($row['phone']);
+            $trailNum1 = h($row['trail_number']);
+            $weekendOpening1 = h($row['opening_hour_weekend']);
+            $weekendClosing1 = h($row['closing_hour_weekend']);
+            $weekdayOpening1 = h($row['opening_hour_weekday']);
+            $weekdayClosing1 = h($row['closing_hour_weekday']);
+            $description1 = h($row['description']);
           }
         }
 
@@ -52,18 +52,18 @@ check_admin_login();
         // initialize variables for Sugar
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
-            $resortId2= $row['resort_id'];
-            $name2 = $row['resort_name'];
-            $address2 = $row['address'];
-            $city2 = $row['city'];
-            $zip2 = $row['zip']; 
-            $phone2 = $row['phone'];
-            $trailNum2 = $row['trail_number'];
-            $weekendOpening2 = $row['opening_hour_weekend'];
-            $weekendClosing2 = $row['closing_hour_weekend'];
-            $weekdayOpening2 = $row['opening_hour_weekday'];
-            $weekdayClosing2 = $row['closing_hour_weekday'];
-            $description2 = $row['description'];
+            $resortId2= h($row['resort_id']);
+            $name2 = h($row['resort_name']);
+            $address2 = h($row['address']);
+            $city2 = h($row['city']);
+            $zip2 = h($row['zip']); 
+            $phone2 = h($row['phone']);
+            $trailNum2 = h($row['trail_number']);
+            $weekendOpening2 = h($row['opening_hour_weekend']);
+            $weekendClosing2 = h($row['closing_hour_weekend']);
+            $weekdayOpening2 = h($row['opening_hour_weekday']);
+            $weekdayClosing2 = h($row['closing_hour_weekday']);
+            $description2 = h($row['description']);
           }
         }
 
@@ -75,18 +75,18 @@ check_admin_login();
         // initialize variables for Beech
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
-            $resortId3= $row['resort_id'];
-            $name3 = $row['resort_name'];
-            $address3 = $row['address'];
-            $city3 = $row['city'];
-            $zip3 = $row['zip']; 
-            $phone3 = $row['phone'];
-            $trailNum3 = $row['trail_number'];
-            $weekendOpening3 = $row['opening_hour_weekend'];
-            $weekendClosing3 = $row['closing_hour_weekend'];
-            $weekdayOpening3 = $row['opening_hour_weekday'];
-            $weekdayClosing3 = $row['closing_hour_weekday'];
-            $description3 = $row['description'];
+            $resortId3= h($row['resort_id']);
+            $name3 = h($row['resort_name']);
+            $address3 = h($row['address']);
+            $city3 = h($row['city']);
+            $zip3 = h($row['zip']); 
+            $phone3 = h($row['phone']);
+            $trailNum3 = h($row['trail_number']);
+            $weekendOpening3 = h($row['opening_hour_weekend']);
+            $weekendClosing3 = h($row['closing_hour_weekend']);
+            $weekdayOpening3 = h($row['opening_hour_weekday']);
+            $weekdayClosing3 = h($row['closing_hour_weekday']);
+            $description3 = h($row['description']);
           }
         }
 
@@ -98,18 +98,18 @@ check_admin_login();
         // initialize variables for App
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
-            $resortId4= $row['resort_id'];
-            $name4 = $row['resort_name'];
-            $address4 = $row['address'];
-            $city4 = $row['city'];
-            $zip4 = $row['zip']; 
-            $phone4 = $row['phone'];
-            $trailNum4 = $row['trail_number'];
-            $weekendOpening4 = $row['opening_hour_weekend'];
-            $weekendClosing4 = $row['closing_hour_weekend'];
-            $weekdayOpening4 = $row['opening_hour_weekday'];
-            $weekdayClosing4 = $row['closing_hour_weekday'];
-            $description4 = $row['description'];
+            $resortId4= h($row['resort_id']);
+            $name4 = h($row['resort_name']);
+            $address4 = h($row['address']);
+            $city4 = h($row['city']);
+            $zip4 = h($row['zip']); 
+            $phone4 = h($row['phone']);
+            $trailNum4 = h($row['trail_number']);
+            $weekendOpening4 = h($row['opening_hour_weekend']);
+            $weekendClosing4 = h($row['closing_hour_weekend']);
+            $weekdayOpening4 = h($row['opening_hour_weekday']);
+            $weekdayClosing4 = h($row['closing_hour_weekday']);
+            $description4 = h($row['description']);
           }
         }
 
@@ -121,18 +121,18 @@ check_admin_login();
         // initialize variables for Wolf
         if (mysqli_num_rows($results) > 0) {
           while($row = mysqli_fetch_assoc($results)) {
-            $resortId5= $row['resort_id'];
-            $name5 = $row['resort_name'];
-            $address5 = $row['address'];
-            $city5 = $row['city'];
-            $zip5 = $row['zip']; 
-            $phone5 = $row['phone'];
-            $trailNum5 = $row['trail_number'];
-            $weekendOpening5 = $row['opening_hour_weekend'];
-            $weekendClosing5 = $row['closing_hour_weekend'];
-            $weekdayOpening5 = $row['opening_hour_weekday'];
-            $weekdayClosing5 = $row['closing_hour_weekday'];
-            $description5 = $row['description'];
+            $resortId5= h($row['resort_id']);
+            $name5 = h($row['resort_name']);
+            $address5 = h($row['address']);
+            $city5 = h($row['city']);
+            $zip5 = h($row['zip']); 
+            $phone5 = h($row['phone']);
+            $trailNum5 = h($row['trail_number']);
+            $weekendOpening5 = h($row['opening_hour_weekend']);
+            $weekendClosing5 = h($row['closing_hour_weekend']);
+            $weekdayOpening5 = h($row['opening_hour_weekday']);
+            $weekdayClosing5 = h($row['closing_hour_weekday']);
+            $description5 = h($row['description']);
           }
         }
         ?>
