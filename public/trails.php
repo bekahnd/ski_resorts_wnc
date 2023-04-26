@@ -357,7 +357,7 @@ if (mysqli_num_rows($result) > 0) {
       <th>Green</th>
       <th>Blue</th>
       <th>Black</th>
-      <th>Double Black</t
+      <th>Double Black</th>
       <th>Terrain Park</th>
       <th>Open Trails</th>
       <th>Closed Trails</th>
