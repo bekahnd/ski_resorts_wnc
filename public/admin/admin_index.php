@@ -42,7 +42,6 @@ check_admin_login();
             $weekdayClosing1 = $row['closing_hour_weekday'];
             $description1 = $row['description'];
           }
-          // $row = mysqli_fetch_assoc($results);
         }
 
         // Get resort information from database for Sugar
@@ -66,7 +65,6 @@ check_admin_login();
             $weekdayClosing2 = $row['closing_hour_weekday'];
             $description2 = $row['description'];
           }
-          // $row = mysqli_fetch_assoc($results);
         }
 
         // Get resort information from database for Beech
@@ -90,7 +88,6 @@ check_admin_login();
             $weekdayClosing3 = $row['closing_hour_weekday'];
             $description3 = $row['description'];
           }
-          // $row = mysqli_fetch_assoc($results);
         }
 
         // Get resort information from database for App
@@ -114,7 +111,6 @@ check_admin_login();
             $weekdayClosing4 = $row['closing_hour_weekday'];
             $description4 = $row['description'];
           }
-          // $row = mysqli_fetch_assoc($results);
         }
 
         // Get resort information from database for Wolf
@@ -138,7 +134,6 @@ check_admin_login();
             $weekdayClosing5 = $row['closing_hour_weekday'];
             $description5 = $row['description'];
           }
-          // $row = mysqli_fetch_assoc($results);
         }
         ?>
 

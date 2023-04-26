@@ -8,16 +8,16 @@ include_once(SHARED_PATH . '/public_header.php');
 
 <h2><?php echo $page_title; ?></h2>
 <?php
-$username = $_SESSION['username'];
+$username = mysqli_real_escape_string($database, $_SESSION['username']);
 $sql = "SELECT username, first_name, last_name, email, state_abbreviation FROM member INNER JOIN state ON member.state_id=state.state_id WHERE username='".$username."'";
 $result = mysqli_query($database, $sql);
 if(mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
-    $user = $row['username'];
-    $first_name = $row['first_name'];
-    $last_name = $row['last_name'];
-    $email = $row['email'];
-    $state = $row['state_abbreviation'];
+    $user = h($row['username']);
+    $first_name = h($row['first_name']);
+    $last_name = h($row['last_name']);
+    $email = h($row['email']);
+    $state = h($row['state_abbreviation']);
   }
 }
 ?>

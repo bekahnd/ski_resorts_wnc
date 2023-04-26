@@ -13,7 +13,7 @@ check_member_login();
 <div id="posts">
 <?php
 // Grabs all posts and displays them from newest to oldest with username and caption
-$sql = "SELECT * FROM post, member WHERE post.member_id=member.member_id ORDER BY post_id DESC";
+$sql = "SELECT * FROM post INNER JOIN member ON post.member_id=member.member_id ORDER BY post_id DESC";
 $result = mysqli_query($database, $sql);
 
 if (mysqli_num_rows($result) > 0) {

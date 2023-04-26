@@ -5,8 +5,8 @@ include_once(SHARED_PATH . '/public_header.php');
 
 // Initializes username and password based on user submission
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-  $username = h($_POST['username']);
-  $password = h($_POST['password']);
+  $username = mysqli_real_escape_string($database, $_POST['username']);
+  $password = mysqli_real_escape_string($database, $_POST['password']);
 
   $errors[] = '';
 
@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $the_hashed_password = $row['hashed_password'];    
   }
 
-  $hashed_password = password_verify($password, $the_hashed_password);
+  $hashed_password = password_verify(h($password), $the_hashed_password);
   
 
 // Error messages

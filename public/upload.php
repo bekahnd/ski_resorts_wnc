@@ -13,7 +13,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
   echo "</pre>";
 
   // Add username of user who made post
-  $username = $_SESSION['username'];
+  $username = mysqli_real_escape_string($database, $_SESSION['username']);
   echo "username: " . h($username);
   echo "<br>";
 
@@ -28,9 +28,9 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
   echo "<br>";
 
   // Initialize variables base on what user submitted
-  $resort_id = $_POST['resort'];
-  echo "resort id: " . $resort_id;
-  $caption = $_POST['caption'];
+  $resort_id = mysqli_real_escape_string($database, $_POST['resort']);
+  echo "resort id: " . h($resort_id);
+  $caption = mysqli_real_escape_string($database, $_POST['caption']);
   $img_name = $_FILES['media']['name'];
   $img_size = $_FILES['media']['size'];
   $tmp_name = $_FILES['media']['tmp_name'];
@@ -42,7 +42,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
       $em = "Sorry, your file is too large.";
       redirect_to('post.php?error='.$em);
     } elseif($resort_id == 'Choose Resort') {
-      $em = "Please choose the resort your post corresponds with. Don't see it listed? Choose 'other'.";
+      $em = "Please choose the resort your post corresponds with. Do not see it listed? Choose other.";
       redirect_to('post.php?error='.$em);
     } else {
       $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);

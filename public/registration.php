@@ -9,14 +9,14 @@ $page_title = 'Create an Account';
 include_once(SHARED_PATH . '/public_header.php');
 // Assign variables based on user submission
 if(is_post_request()) {
-  $first_name = h($_POST["fname"]);
-  $last_name = h($_POST["lname"]);
-  $username = h($_POST["uname"]);
-  $password = h($_POST["password"]);
-  $confirm_password = h($_POST["confirm_password"]);
-  $email = h($_POST["email"]);
-  $state_id = h($_POST["state"]);
-  $hashed_password = password_hash(h($password), PASSWORD_DEFAULT);
+  $first_name = mysqli_real_escape_string($database, $_POST["fname"]);
+  $last_name = mysqli_real_escape_string($database, $_POST["lname"]);
+  $username = mysqli_real_escape_string($database, $_POST["uname"]);
+  $password = mysqli_real_escape_string($database, $_POST["password"]);
+  $confirm_password = mysqli_real_escape_string($database, $_POST["confirm_password"]);
+  $email = mysqli_real_escape_string($database, $_POST["email"]);
+  $state_id = mysqli_real_escape_string($database, $_POST["state"]);
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
   $duplicate = mysqli_query($database, "SELECT * FROM member WHERE username = '$username' or email = '$email'");
 
   // Personalized error messages

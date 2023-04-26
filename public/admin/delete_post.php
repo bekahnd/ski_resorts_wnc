@@ -11,7 +11,7 @@ $tableName = "post";
 <h2>Delete Post</h2>
 <?php
 if(isset($_POST['submit'])) {
-  $id = $_POST['id'];
+  $id = mysqli_real_escape_string($database, $_POST['id']);
   $sql = "DELETE FROM $tableName WHERE post_id=$id";
   $result = mysqli_query($database, $sql);
 

@@ -8,7 +8,7 @@ check_member_login();
 <h2>Post</h2>
 <?php
 if (isset($_GET['error'])): ?>
-  <p><?php echo $_GET['error'] ?></p>
+  <p><?php echo mysqli_real_escape_string($database, $_GET['error']) ?></p>
   <?php endif ?>
   <!-- Form fro user to upload photo -->
 <form action="upload.php"method="post" enctype="multipart/form-data">

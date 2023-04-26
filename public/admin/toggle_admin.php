@@ -7,15 +7,15 @@ check_admin_login();
 $tableName = "member";
 
 if(isset($_POST['submit'])) {
-  $id = $_POST['id'];
+  $id = mysqli_real_escape_string($database, $_POST['id']);
 
   // grabs admin status and username from database
   $sql = "SELECT is_admin, username FROM $tableName WHERE member_id=$id";
   $result = mysqli_query($database, $sql);
   $row = $result->fetch_assoc();
 
-  $is_admin = $row["is_admin"];
-  $username = $row["username"];
+  $is_admin = h($row["is_admin"]);
+  $username = h($row["username"]);
 
   // Set new admin value to opposite of current value (toggle) and update the database
   if($is_admin === '1') {

@@ -12,23 +12,22 @@ $tableName = "resort";
 <?php
 // gets information from database based on resort id and initialized variables
 if(isset($_POST['submit'])) {
-  $id = $_POST['id'];
+  $id = mysqli_real_escape_string($database, $_POST['id']);
   $sql = "SELECT * FROM $tableName WHERE resort_id=$id";
   $result = mysqli_query($database, $sql);
   if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-      // print_r($row);
-      $resortName = $row['resort_name'];
-      $description = $row['description'];
-      $address = $row['address'];
-      $city = $row['city'];
-      $zip = $row['zip'];
-      $phone = $row['phone'];
-      $trailNumber = $row['trail_number'];
-      $weekendOpening = $row['opening_hour_weekend'];
-      $weekendClosing = $row['closing_hour_weekend'];
-      $weekdayOpening = $row['opening_hour_weekday'];
-      $weekdayClosing = $row['closing_hour_weekday'];
+      $resortName = h($row['resort_name']);
+      $description = h($row['description']);
+      $address = h($row['address']);
+      $city = h($row['city']);
+      $zip = h($row['zip']);
+      $phone = h($row['phone']);
+      $trailNumber = h($row['trail_number']);
+      $weekendOpening = h($row['opening_hour_weekend']);
+      $weekendClosing = h($row['closing_hour_weekend']);
+      $weekdayOpening = h($row['opening_hour_weekday']);
+      $weekdayClosing = h($row['closing_hour_weekday']);
     }
   }
 }

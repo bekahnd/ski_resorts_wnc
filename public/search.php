@@ -8,7 +8,7 @@ check_member_login();
 
 <?php
 // Grab search from user submission
-$search = h($_GET['search']);
+$search = mysqli_real_escape_string($database, $_GET['search']);
 
 // Search database for username, first name, or last name based on user search
 $sql = "SELECT * FROM member WHERE username LIKE '%$search%' OR first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR date_joined LIKE '%$search%'";
@@ -19,7 +19,7 @@ $result = mysqli_query($database, $sql);
 <button id='toggle'><a href='admin/admin_home.php' id='toggleA'>&lt; &lt; Back to full members list.</a></button>
 
 <?php
-// Table to display the members that match the criteria of what is seached
+// Table to display the members that match the criteria of what is searched
 if (mysqli_num_rows($result) > 0){
   while($row = mysqli_fetch_assoc($result)) {
     if ($row['is_admin'] == 0) {
