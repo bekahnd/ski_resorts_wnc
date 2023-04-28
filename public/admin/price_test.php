@@ -1,10 +1,43 @@
 <div id="price">
 
 <?php
-include_once('../private/initialize.php');
-$page_title = 'Prices';
-include_once(SHARED_PATH . '/public_header.php');
-check_member_login();
+include_once('../../private/initialize.php');
+?>
+<span id="price">
+<?php
+$page_title = 'Admin Prices';
+include_once(SHARED_PATH . '/admin_header.php');
+check_admin_login();
+
+?>
+
+<div id="intro">
+<h2><?php echo $page_title; ?></h2>
+  <p>The prices for the five resorts are listed in the tables below. These prices are accurate as of the 2023 ski season. You can find the prices for adult/junior slope tickets, ski rental tickets, and snowboard rental tickets. Prices vary when it comes to length of time and age, and are divided this way below. Depending on the resort you visit the ages considered juniors and adults will differ. Please see the ages for each resort towards the bottom of the page. Many of the resorts also offer a special such as purchasing an extension for your ticket for a lower price or purchasing an all day ticket from open to close. These specials can be found towards the end of the page as well. </p>
+</div>
+
+<?php
+// $sqlResort = "SELECT resort_name, half_day_time, full_day_time, night_time, special_time, junior_age, adult_age FROM resort";
+// $resultsResort = mysqli_query($database, $sqlResort);
+// $nameRow = [];
+// $specials = [];
+// $juniorAge = [];
+// $adultAge = [];
+// $fullDayTime = [];
+// $halfDayTime = [];
+// $nightTime = [];
+
+// if(mysqli_num_rows($resultsResort) > 0) {
+//   while($row = mysqli_fetch_array($resultsResort)) {
+//     array_push($nameRow, $row['resort_name']);
+//     array_push($fullDayTime, $row['full_day_time']);
+//     array_push($halfDayTime, $row['half_day_time']);
+//     array_push($nightTime, $row['night_time']);
+//     array_push($specials, $row['special_time']);
+//     array_push($juniorAge, $row['junior_age']);
+//     array_push($adultAge, $row['adult_age']);
+//   }
+// }
 
 $resorts = array(
   array(), // Cataloochie
@@ -13,6 +46,7 @@ $resorts = array(
   array(), // App
   array() // Wolf
 );
+
 
 // Retrieve pricing category and prices 
 $sql = "SELECT resort_id, pricing_category, price FROM resort_pricing INNER JOIN pricing_category ON resort_pricing.pricing_category_id = pricing_category.pricing_category_id";
@@ -25,6 +59,9 @@ foreach ($result as $row) {
   $price = $row['price'];
   $resorts[$resort_id][$category] = $price;
 }
+
+
+// var_dump($resorts);
 
 $sql = "SELECT resort_name, half_day_time, full_day_time, night_time, special_time, junior_age, adult_age FROM resort WHERE resort_id = 1 OR resort_id = 2 OR resort_id = 3 OR resort_id = 4 OR resort_id =5";
 $result = mysqli_query($database, $sql);
@@ -56,11 +93,66 @@ if(mysqli_num_rows($result) > 0 ) {
   }
 }
 ?>
+<table>
+  <thead>
+    <tr>
+      <th>Resort</th>
+      <th>Full Day Time</th>
+      <th>Half-Day Time</th>
+      <th>Night Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($resortSpecifics as $resort_name => $resort_data): ?>
+      <tr>
+        <th><?php echo $resort_name; ?></th>
+        <td><?php echo $resort_data['full_day_time']; ?></td>
+        <td><?php echo $resort_data['half_day_time']; ?></td>
+        <td><?php echo $resort_data['night_time']; ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
 
-<div id="intro">
-<h2><?php echo $page_title; ?></h2>
-  <p>The prices for the five resorts are listed in the tables below. These prices are accurate as of the 2023 ski season. You can find the prices for adult/junior slope tickets, ski rental tickets, and snowboard rental tickets. Prices vary when it comes to length of time and age, and are divided this way below. Depending on the resort you visit the ages considered juniors and adults will differ. Please see the ages for each resort towards the bottom of the page. Many of the resorts also offer a special such as purchasing an extension for your ticket for a lower price or purchasing an all day ticket from open to close. These specials can be found towards the end of the page as well. </p>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Resort</th>
+      <th>The Special</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($resortSpecifics as $resort_name => $resort_data): ?>
+      <tr>
+        <th><?php echo $resort_name; ?></th>
+        <td><?php echo $resort_data['special_time']; ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resort</th>
+      <th>Junior Age</th>
+      <th>Adult Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($resortSpecifics as $resort_name => $resort_data): ?>
+      <tr>
+        <th><?php echo $resort_name; ?></th>
+        <td><?php echo $resort_data['junior_age']; ?></td>
+        <td><?php echo $resort_data['adult_age']; ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+<?php
+
+
+?>
 
 
 <div class="tabs">
@@ -68,6 +160,7 @@ if(mysqli_num_rows($result) > 0 ) {
   <div id="tab2" onClick="Javascript:selectPriceTab(2);">Ski Rental Tickets</div>
   <div id="tab3" onClick="Javascript:selectPriceTab(3);">Snowboard Rental Tickets</div>
 </div>
+<br>
 
 <div id="tables">
   <div id="tab1Content">
@@ -83,6 +176,8 @@ if(mysqli_num_rows($result) > 0 ) {
           <th>Wolf Ridge Ski Resort</th>
         </tr>
       </thead>
+
+
       <?php
       // Create the table body with the categories as the rows
       echo "<tbody>";
@@ -262,65 +357,6 @@ if(mysqli_num_rows($result) > 0 ) {
       ?>
     </table>
   </div>
-  <div id="otherTables">
-    <table id="times">
-      <caption>Times</caption>
-      <thead>
-        <tr>
-          <th>Resort</th>
-          <th>Full Day Time</th>
-          <th>Half-Day Time</th>
-          <th>Night Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach($resortSpecifics as $resort_name => $resort_data): ?>
-        <tr>
-          <th><?php echo $resort_name; ?></th>
-          <td><?php echo $resort_data['full_day_time']; ?></td>
-          <td><?php echo $resort_data['half_day_time']; ?></td>
-          <td><?php echo $resort_data['night_time']; ?></td>
-        </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
-      <table id="specials">
-        <caption>Specials</caption>
-        <thead>
-          <tr>
-            <th>Resort</th>
-            <th>The Special</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach($resortSpecifics as $resort_name => $resort_data): ?>
-          <tr>
-            <th><?php echo $resort_name; ?></th>
-            <td><?php echo $resort_data['special_time']; ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <table id="ages">
-        <caption>Ages</caption>
-        <thead>
-          <tr>
-            <th>Resort</th>
-            <th>Junior Age</th>
-            <th>Adult Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach($resortSpecifics as $resort_name => $resort_data): ?>
-          <tr>
-            <th><?php echo $resort_name; ?></th>
-            <td><?php echo $resort_data['junior_age']; ?></td>
-            <td><?php echo $resort_data['adult_age']; ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    </div>
 </div>
 <?php
   include(SHARED_PATH . '/public_footer.php');
@@ -329,3 +365,5 @@ if(mysqli_num_rows($result) > 0 ) {
   </div>
 </body>
 </html>
+
+

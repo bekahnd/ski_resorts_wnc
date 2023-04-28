@@ -316,6 +316,10 @@ tr:nth-of-type(even) {
 
 }
 
+#times {
+  grid-column: span 2;
+}
+
 #ages td,
 #specials td,
 #times td {
