@@ -36,6 +36,6 @@ if(isset($_POST['submit'])) {
   echo "<p>Resort Weekend closing Time - " . h($weekendClosing) . "</p>";
   echo "<p>Resort Weekday Opening Time - " . h($weekdayOpening) . "</p>";
   echo "<p>Resort Weekday Closing Time - " . h($weekdayClosing) . "</p>";
-  echo "<button id='toggle'><a href='" . url_for('public/admin/admin_index.php') . "' id='toggleA'>&lt; &lt; Back to home page.</a></button>";
+  echo "<p id='p_button'><a href='" . url_for('public/admin/admin_index.php') . "' id='button'>&lt; &lt; Back to home page.</a></p>";
 }
 ?>

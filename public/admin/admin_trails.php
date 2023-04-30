@@ -14,10 +14,10 @@ $sql = "SELECT resort_id, trail_name, is_open, difficulty_level FROM trail INNER
 $result = mysqli_query($database, $sql);
 
 foreach ($result as $row) {
-  $resort_id = $row['resort_id'];
-  $trail_name = $row['trail_name'];
-  $is_open = $row['is_open'];
-  $difficulty_level = $row['difficulty_level'];
+  $resort_id = h($row['resort_id']);
+  $trail_name = h($row['trail_name']);
+  $is_open = h($row['is_open']);
+  $difficulty_level = h($row['difficulty_level']);
   if ($is_open == '1') {
     $open = 'open';
   } else {

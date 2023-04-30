@@ -23,7 +23,7 @@ function selectPriceTab(tabIndex) {
 }
 
 /* For admin gallery delete button on hover */
-const imageContainers = document.querySelectorAll('#alb');
+const imageContainers = document.querySelectorAll('.alb');
 
 imageContainers.forEach(imageContainer => {
   const deleteButton = imageContainer.querySelector('.delete_button');

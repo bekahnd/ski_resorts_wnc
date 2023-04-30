@@ -55,6 +55,7 @@ if(isset($_POST['submit'])) {
   echo "<h3> The following changes have been made for " . $resort_name . "</h3>";
   echo "<p>Junior Age: " . h($junior_age) . "</p>";
   echo "<p>Adult Age: " . h($adult_age) . "</p>";
+  echo "<p id='p_button'><a href='" . url_for('public/admin/admin_index.php') . "' id='button'>&lt; &lt; Back to prices page.</a></p>";
   echo "<button id='toggle'><a href='" . url_for('public/admin/admin_prices.php') . "' id='toggleA'>&lt; &lt; Back to prices page.</a></button>";
 } else {
   echo "No post submitted.";

@@ -9,7 +9,7 @@ $table_name = "trail";
 echo "<h2>Trail updated successfully</h2>";
 
 if(isset($_POST['submit'])) {
-  $trail_name = mysqli_real_escape_string($database, $_POST['trail_name']);
+  $trail_name = mysqli_real_escape_string($database, h($_POST['trail_name']));
 
   $sql = "SELECT is_open FROM $table_name WHERE trail_name='$trail_name'";
   $result = mysqli_query($database, $sql);
@@ -30,5 +30,5 @@ if(isset($_POST['submit'])) {
   } else {
     echo "<p>" . $trail_name . " has been changed to closed.</p>";
   }
-  echo "<button id='toggle'><a href='" . url_for('public/admin/admin_trails.php') . "' id='toggleA'>&lt; &lt; Back to trails list.</a></button>";
+  echo "<p id='p_button'><a href='" . url_for('public/admin/admin_trails.php') . "' id='button'>&lt; &lt; Back to trails list.</a></p>";
 }

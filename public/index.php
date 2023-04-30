@@ -141,58 +141,58 @@ include(SHARED_PATH . '/public_header.php');
 
       <!-- Display Cataloochie resort information -->
       <div id="resortDescriptions">
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name1; ?></h3>
-          <p id="description"><?php echo $description1; ?></p>
-          <p id="address"><?php echo $address1 . "<br>" . $city1 . ", " . $zip1; ?></p>
-          <p id="phone">Phone: <?php echo $phone1; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening1 . "-" . $weekendClosing1 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening1 . "-" . $weekdayClosing1 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum1 . "."; ?></p>
+          <p class="description"><?php echo $description1; ?></p>
+          <p class="address"><?php echo $address1 . "<br>" . $city1 . ", " . $zip1; ?></p>
+          <p class="phone">Phone: <?php echo $phone1; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $weekendOpening1 . "-" . $weekendClosing1 . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $weekdayOpening1 . "-" . $weekdayClosing1 . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $trailNum1 . "."; ?></p>
         </div>
 
         <!-- Display Sugar resort information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name2; ?></h3>
-          <p id="description"><?php echo $description2; ?></p>
-          <p id="address"><?php echo $address2 . "<br>" . $city2 . ", " . $zip2; ?></p>
-          <p id="phone">Phone: <?php echo $phone2; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening2 . "-" . $weekendClosing2 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening2 . "-" . $weekdayClosing2 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <p class="description"><?php echo $description2; ?></p>
+          <p class="address"><?php echo $address2 . "<br>" . $city2 . ", " . $zip2; ?></p>
+          <p class="phone">Phone: <?php echo $phone2; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $weekendOpening2 . "-" . $weekendClosing2 . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $weekdayOpening2 . "-" . $weekdayClosing2 . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
         </div>
 
         <!-- Display Beech resort information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name3; ?></h3>
-          <p id="description"><?php echo $description3; ?></p>
-          <p id="address"><?php echo $address3 . "<br>" . $city3 . ", " . $zip3; ?></p>
-          <p id="phone">Phone: <?php echo $phone3; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening3 . "-" . $weekendClosing3 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening3 . "-" . $weekdayClosing3 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <p><?php echo $description3; ?></p>
+          <p><?php echo $address3 . "<br>" . $city3 . ", " . $zip3; ?></p>
+          <p>Phone: <?php echo $phone3; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening3 . "-" . $weekendClosing3 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening3 . "-" . $weekdayClosing3 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum2 . "."; ?></p>
         </div>
 
         <!-- Display App resort information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name4; ?></h3>
-          <p id="description"><?php echo $description4; ?></p>
-          <p id="address"><?php echo $address4 . "<br>" . $city4 . ", " . $zip4; ?></p>
-          <p id="phone">Phone: <?php echo $phone4; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening4 . "-" . $weekendClosing4 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening4 . "-" . $weekdayClosing4 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum4 . "."; ?></p>
+          <p><?php echo $description4; ?></p>
+          <p><?php echo $address4 . "<br>" . $city4 . ", " . $zip4; ?></p>
+          <p>Phone: <?php echo $phone4; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening4 . "-" . $weekendClosing4 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening4 . "-" . $weekdayClosing4 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum4 . "."; ?></p>
         </div>
 
         <!-- Display Wolf resort information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name5; ?></h3>
-          <p id="description"><?php echo $description5; ?></p>
-          <p id="address"><?php echo $address5 . "<br>" . $city5 . ", " . $zip5; ?></p>
-          <p id="phone">Phone: <?php echo $phone5; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening5 . "-" . $weekendClosing5 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening5 . "-" . $weekdayClosing5 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum5 . "."; ?></p>
+          <p><?php echo $description5; ?></p>
+          <p><?php echo $address5 . "<br>" . $city5 . ", " . $zip5; ?></p>
+          <p>Phone: <?php echo $phone5; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening5 . "-" . $weekendClosing5 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening5 . "-" . $weekdayClosing5 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum5 . "."; ?></p>
         </div>
       </div>
     </main>

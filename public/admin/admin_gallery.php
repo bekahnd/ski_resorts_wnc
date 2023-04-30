@@ -18,8 +18,8 @@ $result = mysqli_query($database, $sql);
 if (mysqli_num_rows($result) > 0) {
   while($images = mysqli_fetch_assoc($result)) { 
 ?>
-    <div id="alb">
-      <img src="../images/<?=$images['media_url']?>">
+    <div class="alb">
+      <img src="../images/<?=$images['media_url']?>" height="350" width="350">
       <!-- Adds delete button for admin to delete a post when they hover over the image -->
       <form method="post" action="delete_post.php">
         <input type="hidden" name="id" value='<?=$images['post_id']?>'>

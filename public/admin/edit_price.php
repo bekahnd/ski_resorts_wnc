@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
   }
   ?>
   <form method="post" action="make_price_edits.php">
-    <label for="price">Price for <?php echo $category; ?></label>
+    <label for="new_price">Price for <?php echo $category; ?></label>
     <input type="text" name="new_price" id="new_price" value="<?php echo $price; ?>">
     <input type='hidden' name='category' value='<?php if(isset($category)) echo $category; ?>'>
   

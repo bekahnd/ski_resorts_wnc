@@ -33,7 +33,7 @@ if(isset($_POST['submit'])) {
     echo "<p>" . $username . " has been changed to general member.</p>";
   }
   // button to go back to members list (admin_home)
-  echo "<button id='toggle'><a href='" . url_for('public/admin/admin_home.php') . "' id='toggleA'>&lt; &lt; Back to members list.</a></button>";
+  echo "<p id='p_button'><a href='" . url_for('public/admin/admin_home.php') . "' id='button'>&lt; &lt; Back to members list</a></p>";
 }
 
 ?>

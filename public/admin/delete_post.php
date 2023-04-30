@@ -16,6 +16,6 @@ if(isset($_POST['submit'])) {
   $result = mysqli_query($database, $sql);
 
   echo "<p>Post was deleted successfully.</p>";
-  echo "<a href='admin_gallery.php'><button>Back to gallery</button></a>";
+  echo "<p id='p_button'><a href='" . url_for('public/admin/admin_gallery.php') . "' id='button'>&lt; &lt; Back to gallery.</a></p>";
 }
 ?>

@@ -18,7 +18,7 @@ $resultMember = mysqli_query($database, $sqlMember);
 <h2>Table of Members</h2>
 <form method="get" action="../search.php">
   <label for="search">Search user:</label>
-          <input type="text" name="search" placeholder="Search...">
+          <input type="text" name="search" id="search" placeholder="Search...">
           <button type="submit">Search</button>
 </form>
 <table id="membersTable">

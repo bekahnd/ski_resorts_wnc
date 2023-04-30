@@ -36,7 +36,7 @@ $data1 = json_decode($response1, true);
     $rating = $review1['rating'];
     $text = $review1['text'];
     $time = $review1['relative_time_description'];
-    echo "<p><strong>$author_name</strong> rated Cataloochie Ski Area <span id='stars'>$rating stars</span> - $time</p>";
+    echo "<p><strong>$author_name</strong> rated Cataloochie Ski Area <span class='stars'>$rating stars</span> - $time</p>";
     echo "<p class='endReview'>$text</p>";
   }
   ?>
@@ -58,7 +58,7 @@ $data1 = json_decode($response1, true);
     $rating = $review2['rating'];
     $text = $review2['text'];
     $time = $review2['relative_time_description'];
-    echo "<p><strong>$author_name</strong> rated Sugar Mountain Resort <span id='stars'>$rating stars</span> - $time</p>";
+    echo "<p><strong>$author_name</strong> rated Sugar Mountain Resort <span class='stars'>$rating stars</span> - $time</p>";
     echo "<p class='endReview'>$text</p>";
   }
   ?>
@@ -81,7 +81,7 @@ $data1 = json_decode($response1, true);
     $rating = $review3['rating'];
     $text = $review3['text'];
     $time = $review3['relative_time_description'];
-    echo "<p><strong>$author_name</strong> rated Beech Mountain Resort <span id='stars'>$rating stars</span> - $time</p>";
+    echo "<p><strong>$author_name</strong> rated Beech Mountain Resort <span class='stars'>$rating stars</span> - $time</p>";
     echo "<p class='endReview'>$text</p>";
   }
   ?>
@@ -104,7 +104,7 @@ $data1 = json_decode($response1, true);
     $rating = $review4['rating'];
     $text = $review4['text'];
     $time = $review4['relative_time_description'];
-    echo "<p><strong>$author_name</strong> rated Appalachian Ski Mtn <span id='stars'>$rating stars</span> - $time</p>";
+    echo "<p><strong>$author_name</strong> rated Appalachian Ski Mtn <span class='stars'>$rating stars</span> - $time</p>";
     echo "<p class='endReview'>$text</p>";
   }
   ?>
@@ -127,7 +127,7 @@ $data1 = json_decode($response1, true);
     $rating = $review5['rating'];
     $text = $review5['text'];
     $time = $review5['relative_time_description'];
-    echo "<p><strong>$author_name</strong> rated Wolf Ridge Ski Resort <span id='stars'>$rating stars</span> - $time</p>";
+    echo "<p><strong>$author_name</strong> rated Wolf Ridge Ski Resort <span class='stars'>$rating stars</span> - $time</p>";
     echo "<p class='endReview'>$text</p>";
   }
   ?>
@@ -138,6 +138,5 @@ $data1 = json_decode($response1, true);
   include(SHARED_PATH . '/public_footer.php');
 ?>
 </div>
-</span>
 </body>
 </html>

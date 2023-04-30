@@ -19,7 +19,7 @@ $result = mysqli_query($database, $sql);
 if (mysqli_num_rows($result) > 0) {
   while($images = mysqli_fetch_assoc($result)) { 
 ?>
-    <div id="alb">
+    <div class="alb">
       <img src="images/<?=$images['media_url']?>">
       <p><strong><?=$images['username']?></strong></p>
       <p><?=$images['caption']?></p>

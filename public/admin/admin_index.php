@@ -1,8 +1,6 @@
 <?php
 include_once('../../private/initialize.php');
-?>
-<span id="home">
-  <?php
+
 $page_title = 'Admin Home';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
@@ -139,14 +137,14 @@ check_admin_login();
 
       <!-- Display Cataloochie information -->
       <div id="resortDescriptions">
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name1; ?></h3>
-          <p id="description"><?php echo $description1; ?></p>
-          <p id="address"><?php echo $address1 . "<br>" . $city1 . ", " . $zip1; ?></p>
-          <p id="phone">Phone: <?php echo $phone1; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening1 . "-" . $weekendClosing1 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening1 . "-" . $weekdayClosing1 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum1 . "."; ?></p>
+          <p><?php echo $description1; ?></p>
+          <p><?php echo $address1 . "<br>" . $city1 . ", " . $zip1; ?></p>
+          <p>Phone: <?php echo $phone1; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening1 . "-" . $weekendClosing1 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening1 . "-" . $weekdayClosing1 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum1 . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
@@ -159,12 +157,12 @@ check_admin_login();
         <!-- Display Suagr information -->
         <div id="resortDesc">
           <h3><?php echo $name2; ?></h3>
-          <p id="description"><?php echo $description2; ?></p>
-          <p id="address"><?php echo $address2 . "<br>" . $city2 . ", " . $zip2; ?></p>
-          <p id="phone">Phone: <?php echo $phone2; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening2 . "-" . $weekendClosing2 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening2 . "-" . $weekdayClosing2 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <p><?php echo $description2; ?></p>
+          <p><?php echo $address2 . "<br>" . $city2 . ", " . $zip2; ?></p>
+          <p>Phone: <?php echo $phone2; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening2 . "-" . $weekendClosing2 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening2 . "-" . $weekdayClosing2 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum2 . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
@@ -175,14 +173,14 @@ check_admin_login();
         </div>
 
         <!-- Display Beech information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name3; ?></h3>
-          <p id="description"><?php echo $description3; ?></p>
-          <p id="address"><?php echo $address3 . "<br>" . $city3 . ", " . $zip3; ?></p>
-          <p id="phone">Phone: <?php echo $phone3; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening3 . "-" . $weekendClosing3 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening3 . "-" . $weekdayClosing3 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <p><?php echo $description3; ?></p>
+          <p><?php echo $address3 . "<br>" . $city3 . ", " . $zip3; ?></p>
+          <p>Phone: <?php echo $phone3; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening3 . "-" . $weekendClosing3 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening3 . "-" . $weekdayClosing3 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum2 . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
@@ -193,14 +191,14 @@ check_admin_login();
         </div>
 
         <!-- Display App information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name4; ?></h3>
-          <p id="description"><?php echo $description4; ?></p>
-          <p id="address"><?php echo $address4 . "<br>" . $city4 . ", " . $zip4; ?></p>
-          <p id="phone">Phone: <?php echo $phone4; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening4 . "-" . $weekendClosing4 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening4 . "-" . $weekdayClosing4 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum4 . "."; ?></p>
+          <p><?php echo $description4; ?></p>
+          <p><?php echo $address4 . "<br>" . $city4 . ", " . $zip4; ?></p>
+          <p>Phone: <?php echo $phone4; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening4 . "-" . $weekendClosing4 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening4 . "-" . $weekdayClosing4 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum4 . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
@@ -211,14 +209,14 @@ check_admin_login();
         </div>
 
         <!-- Display Wolf information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name5; ?></h3>
-          <p id="description"><?php echo $description5; ?></p>
-          <p id="address"><?php echo $address5 . "<br>" . $city5 . ", " . $zip5; ?></p>
-          <p id="phone">Phone: <?php echo $phone5; ?></p>
-          <p hours="hours">Weekend hours of operation: <?php echo $weekendOpening5 . "-" . $weekendClosing5 . "."; ?></p>
-          <p hours="hours">Weekday hours of operation: <?php echo $weekdayOpening5 . "-" . $weekdayClosing5 . "."; ?></p>
-          <p id="trail_number">Number of trails: <?php echo $trailNum5 . "."; ?></p>
+          <p><?php echo $description5; ?></p>
+          <p><?php echo $address5 . "<br>" . $city5 . ", " . $zip5; ?></p>
+          <p>Phone: <?php echo $phone5; ?></p>
+          <p>Weekend hours of operation: <?php echo $weekendOpening5 . "-" . $weekendClosing5 . "."; ?></p>
+          <p>Weekday hours of operation: <?php echo $weekdayOpening5 . "-" . $weekdayClosing5 . "."; ?></p>
+          <p>Number of trails: <?php echo $trailNum5 . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
@@ -231,5 +229,3 @@ check_admin_login();
     </main>
   </body>
 </html>
-
-</span>
