@@ -155,7 +155,7 @@ check_admin_login();
         </div>
 
         <!-- Display Suagr information -->
-        <div id="resortDesc">
+        <div class="resortDesc">
           <h3><?php echo $name2; ?></h3>
           <p><?php echo $description2; ?></p>
           <p><?php echo $address2 . "<br>" . $city2 . ", " . $zip2; ?></p>

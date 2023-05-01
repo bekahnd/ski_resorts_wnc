@@ -27,7 +27,7 @@ const imageContainers = document.querySelectorAll('.alb');
 
 imageContainers.forEach(imageContainer => {
   const deleteButton = imageContainer.querySelector('.delete_button');
-  const image = imageContainer.querySelector('img');
+  // const image = imageContainer.querySelector('img');
 
   imageContainer.addEventListener('mouseenter', () => {
     deleteButton.style.display = 'block';

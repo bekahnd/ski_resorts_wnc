@@ -47,6 +47,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
     } else {
       $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
       $img_ex_lc = strtolower($img_ex);
+
       
       $allowed_exs = array("jpg", "jpeg", "png", "mov");
 
@@ -57,6 +58,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
 
         // Insert into Database
         $sql = "INSERT INTO post(resort_id, member_id, caption, media_url) VALUES ('$resort_id', '$member_id', '$caption', '$new_img_name')";
+
         mysqli_query($database, $sql);
         redirect_to('gallery.php');
 
