@@ -10,7 +10,7 @@ check_admin_login();
 <h2><?php echo $page_title; ?></h2>
 <?php
 // Retrieve trail name, open status, and trail difficulty color from database
-$sql = "SELECT resort_id, trail_name, is_open, difficulty_level FROM trail INNER JOIN difficulty ON trail.difficulty_id = difficulty.difficulty_id WHERE resort_id = 1 OR resort_id = 2 OR resort_id = 3 OR resort_id = 4 OR resort_id =5";
+$sql = "SELECT resort_id, trail_name, is_open, difficulty_level FROM trail INNER JOIN difficulty ON difficulty.difficulty_id = trail.difficulty_id  WHERE resort_id = 1 OR resort_id = 2 OR resort_id = 3 OR resort_id = 4 OR resort_id =5";
 $result = mysqli_query($database, $sql);
 
 foreach ($result as $row) {
@@ -87,6 +87,17 @@ foreach ($trails as $resort_id => $trail_names) {
     );
     $count++;
 }
+
+$sql = "SELECT resort_id, trail_map_url FROM resort LIMIT 5";
+$result = mysqli_query($database, $sql);
+
+$trail_url = array();
+while ($row = mysqli_fetch_assoc($result)) {
+  $trail_url[] = array(
+    'resort_id' => $row['resort_id'],
+    'trail_map_url' => $row['trail_map_url']
+  );
+}
 ?>
 
 <!-- Javascript for creating tabs for each resort -->
@@ -111,6 +122,7 @@ foreach ($trails as $resort_id => $trail_names) {
       <th>Terrain Park</th>
       <th>Open Trails</th>
       <th>Closed Trails</th>
+      <th>Trail Map</th>
     </tr>
     <tr>
       <td><?php echo $difficulty[1][0]['green']; ?></td>
@@ -121,6 +133,7 @@ foreach ($trails as $resort_id => $trail_names) {
       <td><?php echo $difficulty[1][0]['terrain']; ?></td>
       <td><?php echo $difficulty[1][0]['open']; ?></td>
       <td><?php echo $difficulty[1][0]['closed']; ?></td>
+      <td><a href="<?php echo $trail_url[0]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
     </tr>
   </table>
   <?php
@@ -149,6 +162,7 @@ foreach ($trails as $resort_id => $trail_names) {
       <th>Terrain Park</th>
       <th>Open Trails</th>
       <th>Closed Trails</th>
+      <th>Trail Map</th>
     </tr>
     <tr>
       <td><?php echo $difficulty[2][0]['green']; ?></td>
@@ -159,6 +173,7 @@ foreach ($trails as $resort_id => $trail_names) {
       <td><?php echo $difficulty[2][0]['terrain']; ?></td>
       <td><?php echo $difficulty[2][0]['open']; ?></td>
       <td><?php echo $difficulty[2][0]['closed']; ?></td>
+      <td><a href="<?php echo $trail_url[1]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
     </tr>
   </table>
   <?php
@@ -187,6 +202,7 @@ foreach ($trails as $resort_id => $trail_names) {
       <th>Terrain Park</th>
       <th>Open Trails</th>
       <th>Closed Trails</th>
+      <th>Trail Map</th>
     </tr>
     <tr>
       <td><?php echo $difficulty[3][0]['green']; ?></td>
@@ -197,6 +213,7 @@ foreach ($trails as $resort_id => $trail_names) {
       <td><?php echo $difficulty[3][0]['terrain']; ?></td>
       <td><?php echo $difficulty[3][0]['open']; ?></td>
       <td><?php echo $difficulty[3][0]['closed']; ?></td>
+      <td><a href="<?php echo $trail_url[2]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
     </tr>
   </table>
   <?php
@@ -225,6 +242,7 @@ for ($i = 0; $i < 17; $i++) {
       <th>Terrain Park</th>
       <th>Open Trails</th>
       <th>Closed Trails</th>
+      <th>Trail Map</th>
     </tr>
     <tr>
       <td><?php echo $difficulty[4][0]['green']; ?></td>
@@ -235,6 +253,7 @@ for ($i = 0; $i < 17; $i++) {
       <td><?php echo $difficulty[4][0]['terrain']; ?></td>
       <td><?php echo $difficulty[4][0]['open']; ?></td>
       <td><?php echo $difficulty[4][0]['closed']; ?></td>
+      <td><a href="<?php echo $trail_url[3]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
     </tr>
   </table>
   <?php
@@ -262,6 +281,7 @@ for ($i = 0; $i < 12; $i++) {
       <th>Terrain Park</th>
       <th>Open Trails</th>
       <th>Closed Trails</th>
+      <th>Trail Map</th>
     </tr>
     <tr>
       <td><?php echo $difficulty[5][0]['green']; ?></td>
@@ -272,6 +292,7 @@ for ($i = 0; $i < 12; $i++) {
       <td><?php echo $difficulty[5][0]['terrain']; ?></td>
       <td><?php echo $difficulty[5][0]['open']; ?></td>
       <td><?php echo $difficulty[5][0]['closed']; ?></td>
+      <td><a href="<?php echo $trail_url[4]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
     </tr>
   </table>
   <?php
