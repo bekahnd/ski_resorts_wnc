@@ -287,9 +287,11 @@ h3 {
 
 table, th, td {
   border: 3px solid #943E00;
-  border-collapse: collapse;
+  border-collapse: collapse;overflow-y: hidden;
+  font-size: 1rem;
   padding: 5px;
   text-align: center;
+  white-space: nowrap;
 }
 
 table {
@@ -300,6 +302,7 @@ table {
 
 #tables {
   margin: 20px auto;
+  overflow-x: auto;
 }
 
 caption {
@@ -474,6 +477,18 @@ button {
 
   .tabs {
     display: none;
+  }
+}
+
+/****** 1010 ******/
+@media only screen and (max-width:1010px) {
+  td, th {
+    font-size: .6rem;
+    padding: 0px;
+  }
+
+  button {
+    width: 70px;
   }
 }
 

@@ -64,9 +64,9 @@ check_admin_login();
     </div>
 
     <div class="tabs">
-      <div id="tab1" onClick="Javascript:selectPriceTab(1);">Lift Tickets</div>
-      <div id="tab2" onClick="Javascript:selectPriceTab(2);">Ski Rental Tickets</div>
-      <div id="tab3" onClick="Javascript:selectPriceTab(3);">Snowboard Rental Tickets</div>
+      <div class="tab1" onClick="Javascript:selectPriceTab(1);">Lift Tickets</div>
+      <div class="tab2" onClick="Javascript:selectPriceTab(2);">Ski Rental Tickets</div>
+      <div class="tab3" onClick="Javascript:selectPriceTab(3);">Snowboard Rental Tickets</div>
     </div>
 
     <div id="tables">
