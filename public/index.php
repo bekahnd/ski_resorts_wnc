@@ -18,187 +18,88 @@ include(SHARED_PATH . '/public_header.php');
         </ul>
       </div>
 
-        <?php
-        // Get resort information from database for Cataloochie
-        $sql = "SELECT * FROM resort WHERE resort_id = 1";
+      <?php
 
-        $results = mysqli_query($database, $sql);
+      $sql = "SELECT resort_id, resort_name, address, city, zip, phone, trail_number, opening_hour_weekend, opening_hour_weekday, closing_hour_weekend, closing_hour_weekday, description FROM resort LIMIT 5";
+      $result = mysqli_query($database, $sql);
 
-        // initialize variables for Cataloochie
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $name1 = $row['resort_name'];
-            $address1 = $row['address'];
-            $city1 = $row['city'];
-            $zip1 = $row['zip']; 
-            $phone1 = $row['phone'];
-            $trailNum1 = $row['trail_number'];
-            $weekendOpening1 = $row['opening_hour_weekend'];
-            $weekendClosing1 = $row['closing_hour_weekend'];
-            $weekdayOpening1 = $row['opening_hour_weekday'];
-            $weekdayClosing1 = $row['closing_hour_weekday'];
-            $description1 = $row['description'];
-          }
-          $row = mysqli_fetch_assoc($results);
-        }
-
-        // Get resort information from database for Sugar
-        $sql = "SELECT * FROM resort WHERE resort_id = 2";
-
-        $results = mysqli_query($database, $sql);
-
-        
-        // initialize variables for Sugar
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $name2 = $row['resort_name'];
-            $address2 = $row['address'];
-            $city2 = $row['city'];
-            $zip2 = $row['zip']; 
-            $phone2 = $row['phone'];
-            $trailNum2 = $row['trail_number'];
-            $weekendOpening2 = $row['opening_hour_weekend'];
-            $weekendClosing2 = $row['closing_hour_weekend'];
-            $weekdayOpening2 = $row['opening_hour_weekday'];
-            $weekdayClosing2 = $row['closing_hour_weekday'];
-            $description2 = $row['description'];
-          }
-          $row = mysqli_fetch_assoc($results);
-        }
-
-        // Get resort information from database for Beech
-        $sql = "SELECT * FROM resort WHERE resort_id = 3";
-
-        $results = mysqli_query($database, $sql);
-
-        
-        // initialize variables for Beech
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $name3 = $row['resort_name'];
-            $address3 = $row['address'];
-            $city3 = $row['city'];
-            $zip3 = $row['zip']; 
-            $phone3 = $row['phone'];
-            $trailNum3 = $row['trail_number'];
-            $weekendOpening3 = $row['opening_hour_weekend'];
-            $weekendClosing3 = $row['closing_hour_weekend'];
-            $weekdayOpening3 = $row['opening_hour_weekday'];
-            $weekdayClosing3 = $row['closing_hour_weekday'];
-            $description3 = $row['description'];
-          }
-          $row = mysqli_fetch_assoc($results);
-        }
-
-        // Get resort information from database for App
-        $sql = "SELECT * FROM resort WHERE resort_id = 4";
-
-        $results = mysqli_query($database, $sql);
-
-        
-        // initialize variables for App
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $name4 = $row['resort_name'];
-            $address4 = $row['address'];
-            $city4 = $row['city'];
-            $zip4 = $row['zip']; 
-            $phone4 = $row['phone'];
-            $trailNum4 = $row['trail_number'];
-            $weekendOpening4 = $row['opening_hour_weekend'];
-            $weekendClosing4 = $row['closing_hour_weekend'];
-            $weekdayOpening4 = $row['opening_hour_weekday'];
-            $weekdayClosing4 = $row['closing_hour_weekday'];
-            $description4 = $row['description'];
-          }
-          $row = mysqli_fetch_assoc($results);
-        }
-
-        // Get resort information from database for Wolf
-        $sql = "SELECT * FROM resort WHERE resort_id = 5";
-
-        $results = mysqli_query($database, $sql);
-
-        
-        // initialize variables for Wolf
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $name5 = $row['resort_name'];
-            $address5 = $row['address'];
-            $city5 = $row['city'];
-            $zip5 = $row['zip']; 
-            $phone5 = $row['phone'];
-            $trailNum5 = $row['trail_number'];
-            $weekendOpening5 = $row['opening_hour_weekend'];
-            $weekendClosing5 = $row['closing_hour_weekend'];
-            $weekdayOpening5 = $row['opening_hour_weekday'];
-            $weekdayClosing5 = $row['closing_hour_weekday'];
-            $description5 = $row['description'];
-          }
-          $row = mysqli_fetch_assoc($results);
-        }
-        ?>
+      foreach ($result as $row) {
+        $resort_id = $row['resort_id'];
+        $resort_name = $row['resort_name'];
+        $address = $row['address'];
+        $city = $row['city'];
+        $zip = $row['zip'];
+        $phone = $row['phone'];
+        $trail_number = $row['trail_number'];
+        $opening_hour_weekend = $row['opening_hour_weekend'];
+        $opening_hour_weekday = $row['opening_hour_weekday'];
+        $closing_hour_weekend = $row['closing_hour_weekend'];
+        $closing_hour_weekday = $row['closing_hour_weekday'];
+        $description = $row['description'];
+        $resorts[$resort_id] = array('resort_name' => $resort_name, 'address' => $address, 'city' => $city, 'zip' => $zip, 'phone' => $phone, 'trail_number' => $trail_number, 'opening_hour_weekend' => $opening_hour_weekend, 'opening_hour_weekday' => $opening_hour_weekday, 'closing_hour_weekend' => $closing_hour_weekend, 'closing_hour_weekday' => $closing_hour_weekday, 'description' => $description);
+      }
+      ?>
 
       <!-- Display Cataloochie resort information -->
       <div id="resortDescriptions">
         <div class="resortDesc">
-          <h3><?php echo $name1; ?></h3>
-          <p class="description"><?php echo $description1; ?></p>
-          <p class="address"><?php echo $address1 . "<br>" . $city1 . ", " . $zip1; ?></p>
-          <p class="phone">Phone: <?php echo $phone1; ?></p>
-          <p class="hours">Weekend hours of operation: <?php echo $weekendOpening1 . "-" . $weekendClosing1 . "."; ?></p>
-          <p class="hours">Weekday hours of operation: <?php echo $weekdayOpening1 . "-" . $weekdayClosing1 . "."; ?></p>
-          <p class="trail_number">Number of trails: <?php echo $trailNum1 . "."; ?></p>
+          <h3><?php echo $resorts[1]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[1]['description']; ?></p>
+          <p class="address"><?php echo $resorts[1]['address'] . "<br>" . $resorts[1]['city'] . ", " . $resorts[1]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[1]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[1]['opening_hour_weekend'] . "-" . $resorts[1]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[1]['opening_hour_weekday'] . "-" . $resorts[1]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[1]['trail_number'] . "."; ?></p>
         </div>
 
         <!-- Display Sugar resort information -->
         <div class="resortDesc">
-          <h3><?php echo $name2; ?></h3>
-          <p class="description"><?php echo $description2; ?></p>
-          <p class="address"><?php echo $address2 . "<br>" . $city2 . ", " . $zip2; ?></p>
-          <p class="phone">Phone: <?php echo $phone2; ?></p>
-          <p class="hours">Weekend hours of operation: <?php echo $weekendOpening2 . "-" . $weekendClosing2 . "."; ?></p>
-          <p class="hours">Weekday hours of operation: <?php echo $weekdayOpening2 . "-" . $weekdayClosing2 . "."; ?></p>
-          <p class="trail_number">Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <h3><?php echo $resorts[2]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[2]['description']; ?></p>
+          <p class="address"><?php echo $resorts[2]['address'] . "<br>" . $resorts[2]['city'] . ", " . $resorts[2]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[2]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[2]['opening_hour_weekend'] . "-" . $resorts[2]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[2]['opening_hour_weekday'] . "-" . $resorts[2]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[2]['trail_number'] . "."; ?></p>
         </div>
 
         <!-- Display Beech resort information -->
         <div class="resortDesc">
-          <h3><?php echo $name3; ?></h3>
-          <p><?php echo $description3; ?></p>
-          <p><?php echo $address3 . "<br>" . $city3 . ", " . $zip3; ?></p>
-          <p>Phone: <?php echo $phone3; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening3 . "-" . $weekendClosing3 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening3 . "-" . $weekdayClosing3 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <h3><?php echo $resorts[3]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[3]['description']; ?></p>
+          <p class="address"><?php echo $resorts[3]['address'] . "<br>" . $resorts[3]['city'] . ", " . $resorts[3]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[3]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[3]['opening_hour_weekend'] . "-" . $resorts[3]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[3]['opening_hour_weekday'] . "-" . $resorts[3]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[3]['trail_number'] . "."; ?></p>
         </div>
 
         <!-- Display App resort information -->
         <div class="resortDesc">
-          <h3><?php echo $name4; ?></h3>
-          <p><?php echo $description4; ?></p>
-          <p><?php echo $address4 . "<br>" . $city4 . ", " . $zip4; ?></p>
-          <p>Phone: <?php echo $phone4; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening4 . "-" . $weekendClosing4 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening4 . "-" . $weekdayClosing4 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum4 . "."; ?></p>
+          <h3><?php echo $resorts[4]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[4]['description']; ?></p>
+          <p class="address"><?php echo $resorts[4]['address'] . "<br>" . $resorts[4]['city'] . ", " . $resorts[4]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[4]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[4]['opening_hour_weekend'] . "-" . $resorts[4]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[4]['opening_hour_weekday'] . "-" . $resorts[4]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[4]['trail_number'] . "."; ?></p>
         </div>
 
         <!-- Display Wolf resort information -->
         <div class="resortDesc">
-          <h3><?php echo $name5; ?></h3>
-          <p><?php echo $description5; ?></p>
-          <p><?php echo $address5 . "<br>" . $city5 . ", " . $zip5; ?></p>
-          <p>Phone: <?php echo $phone5; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening5 . "-" . $weekendClosing5 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening5 . "-" . $weekdayClosing5 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum5 . "."; ?></p>
+          <h3><?php echo $resorts[5]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[5]['description']; ?></p>
+          <p class="address"><?php echo $resorts[5]['address'] . "<br>" . $resorts[5]['city'] . ", " . $resorts[5]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[5]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[5]['opening_hour_weekend'] . "-" . $resorts[5]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[5]['opening_hour_weekday'] . "-" . $resorts[5]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[5]['trail_number'] . "."; ?></p>
         </div>
       </div>
     </main>
-<?php
-  include(SHARED_PATH . '/public_footer.php');
-?>
+    <?php
+    include(SHARED_PATH . '/public_footer.php');
+    ?>
 
   </body>
 </html>

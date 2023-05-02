@@ -19,154 +19,59 @@ check_admin_login();
       </div>
 
         <?php
-        // Get resort information from database for Cataloochie
-        $sql = "SELECT * FROM resort WHERE resort_id = 1";
+        // Get resort information from database
+        $sql = "SELECT resort_id, resort_name, address, city, zip, phone, trail_number, opening_hour_weekend, opening_hour_weekday, closing_hour_weekend, closing_hour_weekday, description FROM resort LIMIT 5";
+        $result = mysqli_query($database, $sql);
 
-        $results = mysqli_query($database, $sql);
-
-        // initialize variables for Cataloochie
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $resortId1= h($row['resort_id']);
-            $name1 = h($row['resort_name']);
-            $address1 = h($row['address']);
-            $city1 = h($row['city']);
-            $zip1 = h($row['zip']); 
-            $phone1 = h($row['phone']);
-            $trailNum1 = h($row['trail_number']);
-            $weekendOpening1 = h($row['opening_hour_weekend']);
-            $weekendClosing1 = h($row['closing_hour_weekend']);
-            $weekdayOpening1 = h($row['opening_hour_weekday']);
-            $weekdayClosing1 = h($row['closing_hour_weekday']);
-            $description1 = h($row['description']);
-          }
-        }
-
-        // Get resort information from database for Sugar
-        $sql = "SELECT * FROM resort WHERE resort_id = 2";
-
-        $results = mysqli_query($database, $sql);
-
-        // initialize variables for Sugar
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $resortId2= h($row['resort_id']);
-            $name2 = h($row['resort_name']);
-            $address2 = h($row['address']);
-            $city2 = h($row['city']);
-            $zip2 = h($row['zip']); 
-            $phone2 = h($row['phone']);
-            $trailNum2 = h($row['trail_number']);
-            $weekendOpening2 = h($row['opening_hour_weekend']);
-            $weekendClosing2 = h($row['closing_hour_weekend']);
-            $weekdayOpening2 = h($row['opening_hour_weekday']);
-            $weekdayClosing2 = h($row['closing_hour_weekday']);
-            $description2 = h($row['description']);
-          }
-        }
-
-        // Get resort information from database for Beech
-        $sql = "SELECT * FROM resort WHERE resort_id = 3";
-
-        $results = mysqli_query($database, $sql);
-
-        // initialize variables for Beech
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $resortId3= h($row['resort_id']);
-            $name3 = h($row['resort_name']);
-            $address3 = h($row['address']);
-            $city3 = h($row['city']);
-            $zip3 = h($row['zip']); 
-            $phone3 = h($row['phone']);
-            $trailNum3 = h($row['trail_number']);
-            $weekendOpening3 = h($row['opening_hour_weekend']);
-            $weekendClosing3 = h($row['closing_hour_weekend']);
-            $weekdayOpening3 = h($row['opening_hour_weekday']);
-            $weekdayClosing3 = h($row['closing_hour_weekday']);
-            $description3 = h($row['description']);
-          }
-        }
-
-        // Get resort information from database for App
-        $sql = "SELECT * FROM resort WHERE resort_id = 4";
-
-        $results = mysqli_query($database, $sql);
-
-        // initialize variables for App
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $resortId4= h($row['resort_id']);
-            $name4 = h($row['resort_name']);
-            $address4 = h($row['address']);
-            $city4 = h($row['city']);
-            $zip4 = h($row['zip']); 
-            $phone4 = h($row['phone']);
-            $trailNum4 = h($row['trail_number']);
-            $weekendOpening4 = h($row['opening_hour_weekend']);
-            $weekendClosing4 = h($row['closing_hour_weekend']);
-            $weekdayOpening4 = h($row['opening_hour_weekday']);
-            $weekdayClosing4 = h($row['closing_hour_weekday']);
-            $description4 = h($row['description']);
-          }
-        }
-
-        // Get resort information from database for Wolf
-        $sql = "SELECT * FROM resort WHERE resort_id = 5";
-
-        $results = mysqli_query($database, $sql);
-
-        // initialize variables for Wolf
-        if (mysqli_num_rows($results) > 0) {
-          while($row = mysqli_fetch_assoc($results)) {
-            $resortId5= h($row['resort_id']);
-            $name5 = h($row['resort_name']);
-            $address5 = h($row['address']);
-            $city5 = h($row['city']);
-            $zip5 = h($row['zip']); 
-            $phone5 = h($row['phone']);
-            $trailNum5 = h($row['trail_number']);
-            $weekendOpening5 = h($row['opening_hour_weekend']);
-            $weekendClosing5 = h($row['closing_hour_weekend']);
-            $weekdayOpening5 = h($row['opening_hour_weekday']);
-            $weekdayClosing5 = h($row['closing_hour_weekday']);
-            $description5 = h($row['description']);
-          }
+        foreach ($result as $row) {
+          $resort_id = h($row['resort_id']);
+          $resort_name = h($row['resort_name']);
+          $address = h($row['address']);
+          $city = h($row['city']);
+          $zip = h($row['zip']);
+          $phone = h($row['phone']);
+          $trail_number = h($row['trail_number']);
+          $opening_hour_weekend = h($row['opening_hour_weekend']);
+          $opening_hour_weekday = h($row['opening_hour_weekday']);
+          $closing_hour_weekend = h($row['closing_hour_weekend']);
+          $closing_hour_weekday = h($row['closing_hour_weekday']);
+          $description = h($row['description']);
+          $resorts[$resort_id] = array('resort_id' => $resort_id, 'resort_name' => $resort_name, 'address' => $address, 'city' => $city, 'zip' => $zip, 'phone' => $phone, 'trail_number' => $trail_number, 'opening_hour_weekend' => $opening_hour_weekend, 'opening_hour_weekday' => $opening_hour_weekday, 'closing_hour_weekend' => $closing_hour_weekend, 'closing_hour_weekday' => $closing_hour_weekday, 'description' => $description);
         }
         ?>
 
       <!-- Display Cataloochie information -->
       <div id="resortDescriptions">
         <div class="resortDesc">
-          <h3><?php echo $name1; ?></h3>
-          <p><?php echo $description1; ?></p>
-          <p><?php echo $address1 . "<br>" . $city1 . ", " . $zip1; ?></p>
-          <p>Phone: <?php echo $phone1; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening1 . "-" . $weekendClosing1 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening1 . "-" . $weekdayClosing1 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum1 . "."; ?></p>
+          <h3><?php echo $resorts[1]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[1]['description']; ?></p>
+          <p class="address"><?php echo $resorts[1]['address'] . "<br>" . $resorts[1]['city'] . ", " . $resorts[1]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[1]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[1]['opening_hour_weekend'] . "-" . $resorts[1]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[1]['opening_hour_weekday'] . "-" . $resorts[1]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[1]['trail_number'] . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
-            echo "<input type='hidden' name='id' value='" . $resortId1 . "'>";
+            echo "<input type='hidden' name='id' value='" . $resorts[1]['resort_id'] . "'>";
             ?>
             <button type="submit" name="submit">Edit Description</button>
           </form>
         </div>
 
-        <!-- Display Suagr information -->
+        <!-- Display Sugar information -->
         <div class="resortDesc">
-          <h3><?php echo $name2; ?></h3>
-          <p><?php echo $description2; ?></p>
-          <p><?php echo $address2 . "<br>" . $city2 . ", " . $zip2; ?></p>
-          <p>Phone: <?php echo $phone2; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening2 . "-" . $weekendClosing2 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening2 . "-" . $weekdayClosing2 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <h3><?php echo $resorts[2]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[2]['description']; ?></p>
+          <p class="address"><?php echo $resorts[2]['address'] . "<br>" . $resorts[2]['city'] . ", " . $resorts[2]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[2]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[2]['opening_hour_weekend'] . "-" . $resorts[2]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[2]['opening_hour_weekday'] . "-" . $resorts[2]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[2]['trail_number'] . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
-            echo "<input type='hidden' name='id' value='" . $resortId2 . "'>";
+            echo "<input type='hidden' name='id' value='" . $resorts[2]['resort_id'] . "'>";
             ?>
             <button type="submit" name="submit">Edit Description</button>
           </form>
@@ -174,17 +79,17 @@ check_admin_login();
 
         <!-- Display Beech information -->
         <div class="resortDesc">
-          <h3><?php echo $name3; ?></h3>
-          <p><?php echo $description3; ?></p>
-          <p><?php echo $address3 . "<br>" . $city3 . ", " . $zip3; ?></p>
-          <p>Phone: <?php echo $phone3; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening3 . "-" . $weekendClosing3 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening3 . "-" . $weekdayClosing3 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum2 . "."; ?></p>
+          <h3><?php echo $resorts[3]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[3]['description']; ?></p>
+          <p class="address"><?php echo $resorts[3]['address'] . "<br>" . $resorts[3]['city'] . ", " . $resorts[3]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[3]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[3]['opening_hour_weekend'] . "-" . $resorts[3]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[3]['opening_hour_weekday'] . "-" . $resorts[3]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[3]['trail_number'] . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
-            echo "<input type='hidden' name='id' value='" . $resortId3 . "'>";
+            echo "<input type='hidden' name='id' value='" . $resorts[3]['resort_id'] . "'>";
             ?>
             <button type="submit" name="submit">Edit Description</button>
           </form>
@@ -192,17 +97,17 @@ check_admin_login();
 
         <!-- Display App information -->
         <div class="resortDesc">
-          <h3><?php echo $name4; ?></h3>
-          <p><?php echo $description4; ?></p>
-          <p><?php echo $address4 . "<br>" . $city4 . ", " . $zip4; ?></p>
-          <p>Phone: <?php echo $phone4; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening4 . "-" . $weekendClosing4 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening4 . "-" . $weekdayClosing4 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum4 . "."; ?></p>
+          <h3><?php echo $resorts[4]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[4]['description']; ?></p>
+          <p class="address"><?php echo $resorts[4]['address'] . "<br>" . $resorts[4]['city'] . ", " . $resorts[4]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[4]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[4]['opening_hour_weekend'] . "-" . $resorts[4]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[4]['opening_hour_weekday'] . "-" . $resorts[4]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[4]['trail_number'] . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
-            echo "<input type='hidden' name='id' value='" . $resortId4 . "'>";
+            echo "<input type='hidden' name='id' value='" . $resorts[4]['resort_id'] . "'>";
             ?>
             <button type="submit" name="submit">Edit Description</button>
           </form>
@@ -210,17 +115,17 @@ check_admin_login();
 
         <!-- Display Wolf information -->
         <div class="resortDesc">
-          <h3><?php echo $name5; ?></h3>
-          <p><?php echo $description5; ?></p>
-          <p><?php echo $address5 . "<br>" . $city5 . ", " . $zip5; ?></p>
-          <p>Phone: <?php echo $phone5; ?></p>
-          <p>Weekend hours of operation: <?php echo $weekendOpening5 . "-" . $weekendClosing5 . "."; ?></p>
-          <p>Weekday hours of operation: <?php echo $weekdayOpening5 . "-" . $weekdayClosing5 . "."; ?></p>
-          <p>Number of trails: <?php echo $trailNum5 . "."; ?></p>
+          <h3><?php echo $resorts[5]['resort_name']; ?></h3>
+          <p class="description"><?php echo $resorts[5]['description']; ?></p>
+          <p class="address"><?php echo $resorts[5]['address'] . "<br>" . $resorts[5]['city'] . ", " . $resorts[5]['zip']; ?></p>
+          <p class="phone">Phone: <?php echo $resorts[5]['phone']; ?></p>
+          <p class="hours">Weekend hours of operation: <?php echo $resorts[5]['opening_hour_weekend'] . "-" . $resorts[5]['closing_hour_weekend'] . "."; ?></p>
+          <p class="hours">Weekday hours of operation: <?php echo $resorts[5]['opening_hour_weekday'] . "-" . $resorts[5]['closing_hour_weekday'] . "."; ?></p>
+          <p class="trail_number">Number of trails: <?php echo $resorts[5]['trail_number'] . "."; ?></p>
           <!-- Form for edit description button where admin can edit resort information and update database -->
           <form method="post" action="edit_description.php">
             <?php
-            echo "<input type='hidden' name='id' value='" . $resortId5 . "'>";
+            echo "<input type='hidden' name='id' value='" . $resorts[5]['resort_id'] . "'>";
             ?>
             <button type="submit" name="submit">Edit Description</button>
           </form>
