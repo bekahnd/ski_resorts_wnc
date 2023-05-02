@@ -1,4 +1,3 @@
-<div id="reviews">
 <?php
 include_once('../private/initialize.php');
 $page_title = 'Reviews';
@@ -137,6 +136,3 @@ $data1 = json_decode($response1, true);
  <?php
   include(SHARED_PATH . '/public_footer.php');
 ?>
-</div>
-</body>
-</html>

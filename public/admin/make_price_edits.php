@@ -3,7 +3,6 @@ include_once('../../private/initialize.php');
 $page_title = 'Edit Successful';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
-
 $table_name = "resort_pricing";
 $resort_table = "resort";
 
@@ -34,7 +33,7 @@ if(isset($_POST['submit'])) {
   echo "Half Day Time: " . h($half_day_time) . "<br>";
   echo "Night Time: " . h($night_time) . "<br>";
   echo "<button id='toggle'><a href='" . url_for('public/admin/admin_prices.php') . "' id='toggleA'>&lt; &lt; Back to prices page.</a></button>";
-} elseif(isset($_POST['submitSpecial'])) {
+  } elseif(isset($_POST['submitSpecial'])) {
   $resort_name = mysqli_real_escape_string($database, $_POST['resort_name']);
   $special_time = mysqli_real_escape_string($database, $_POST['special_time']);
 
@@ -44,7 +43,7 @@ if(isset($_POST['submit'])) {
   echo "<h3>The following changes have been made for " . $resort_name . ":</h3>";
   echo "Special: " . h($special_time) . "<br>";
   echo "<button id='toggle'><a href='" . url_for('public/admin/admin_prices.php') . "' id='toggleA'>&lt; &lt; Back to prices page.</a></button>";
-} elseif(isset($_POST['submitAges'])) {
+  } elseif(isset($_POST['submitAges'])) {
   $resort_name = mysqli_real_escape_string($database, $_POST['resort_name']);
   $junior_age = mysqli_real_escape_string($database, $_POST['junior_age']);
   $adult_age = mysqli_real_escape_string($database, $_POST['adult_age']);
@@ -56,6 +55,6 @@ if(isset($_POST['submit'])) {
   echo "<p>Junior Age: " . h($junior_age) . "</p>";
   echo "<p>Adult Age: " . h($adult_age) . "</p>";
   echo "<p id='p_button'><a href='" . url_for('public/admin/admin_index.php') . "' id='button'>&lt; &lt; Back to prices page.</a></p>";
-} else {
+  } else {
   echo "No post submitted.";
 }

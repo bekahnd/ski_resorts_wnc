@@ -3,7 +3,6 @@ include_once('../private/initialize.php');
 $page_title = 'Profile';
 check_member_login();
 include_once(SHARED_PATH . '/public_header.php');
-
 ?>
 
 <h2><?php echo $page_title; ?></h2>
@@ -27,4 +26,3 @@ if(mysqli_num_rows($result) > 0) {
 <p>Username: <?php echo $user;?></p>
 <p>Email: <?php echo $email;?></p>
 <p>State: <?php echo $state;?></p>
-

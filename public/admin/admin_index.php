@@ -5,7 +5,7 @@ $page_title = 'Admin Home';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
 ?>
- <main>
+  <main>
       <div id="intro">
         <h2 id="home">Welcome to <abbr title="Western North Carolina">WNC</abbr> Ski Resorts!</h2>
         <p>Are you living in or planning to visit western North Carolina? Are you looking for somewhere to ski or snowboard but are not sure of what the area has to offer? You have come to the right place! We have five ski resorts in the area ranging from Waynesville, <abbr title="North Carolina">NC</abbr> to Blowing Rock, <abbr title="North Carolina">NC</abbr>. This website offers a lot of information regarding the five resorts to help guide you in choosing the right place for you. Below is a brief description of each resort and what it has to offer. There is so much to consider before planning the <strong>perfect</strong> ski vacation and we want to help!</p>
@@ -18,27 +18,27 @@ check_admin_login();
         </ul>
       </div>
 
-        <?php
-        // Get resort information from database
-        $sql = "SELECT resort_id, resort_name, address, city, zip, phone, trail_number, opening_hour_weekend, opening_hour_weekday, closing_hour_weekend, closing_hour_weekday, description FROM resort LIMIT 5";
-        $result = mysqli_query($database, $sql);
+      <?php
+      // Get resort information from database
+      $sql = "SELECT resort_id, resort_name, address, city, zip, phone, trail_number, opening_hour_weekend, opening_hour_weekday, closing_hour_weekend, closing_hour_weekday, description FROM resort LIMIT 5";
+      $result = mysqli_query($database, $sql);
 
-        foreach ($result as $row) {
-          $resort_id = h($row['resort_id']);
-          $resort_name = h($row['resort_name']);
-          $address = h($row['address']);
-          $city = h($row['city']);
-          $zip = h($row['zip']);
-          $phone = h($row['phone']);
-          $trail_number = h($row['trail_number']);
-          $opening_hour_weekend = h($row['opening_hour_weekend']);
-          $opening_hour_weekday = h($row['opening_hour_weekday']);
-          $closing_hour_weekend = h($row['closing_hour_weekend']);
-          $closing_hour_weekday = h($row['closing_hour_weekday']);
-          $description = h($row['description']);
-          $resorts[$resort_id] = array('resort_id' => $resort_id, 'resort_name' => $resort_name, 'address' => $address, 'city' => $city, 'zip' => $zip, 'phone' => $phone, 'trail_number' => $trail_number, 'opening_hour_weekend' => $opening_hour_weekend, 'opening_hour_weekday' => $opening_hour_weekday, 'closing_hour_weekend' => $closing_hour_weekend, 'closing_hour_weekday' => $closing_hour_weekday, 'description' => $description);
-        }
-        ?>
+      foreach ($result as $row) {
+        $resort_id = h($row['resort_id']);
+        $resort_name = h($row['resort_name']);
+        $address = h($row['address']);
+        $city = h($row['city']);
+        $zip = h($row['zip']);
+        $phone = h($row['phone']);
+        $trail_number = h($row['trail_number']);
+        $opening_hour_weekend = h($row['opening_hour_weekend']);
+        $opening_hour_weekday = h($row['opening_hour_weekday']);
+        $closing_hour_weekend = h($row['closing_hour_weekend']);
+        $closing_hour_weekday = h($row['closing_hour_weekday']);
+        $description = h($row['description']);
+        $resorts[$resort_id] = array('resort_id' => $resort_id, 'resort_name' => $resort_name, 'address' => $address, 'city' => $city, 'zip' =>$zip, 'phone' => $phone, 'trail_number' => $trail_number, 'opening_hour_weekend' => $opening_hour_weekend, 'opening_hour_weekday' =>$opening_hour_weekday, 'closing_hour_weekend' => $closing_hour_weekend, 'closing_hour_weekday' => $closing_hour_weekday, 'description' => $description);
+      }
+      ?>
 
       <!-- Display Cataloochie information -->
       <div id="resortDescriptions">

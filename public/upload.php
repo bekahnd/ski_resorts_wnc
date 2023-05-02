@@ -3,9 +3,7 @@ include_once('../private/initialize.php');
 $page_title = 'Upload';
 include_once(SHARED_PATH . '/public_header.php');
 check_member_login();
-?>
 
-<?php
 // Check if post was submitted
 if (isset($_POST['submit']) && isset($_FILES['media'])) {
   echo "<pre>";
@@ -18,13 +16,10 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
   echo "<br>";
 
   $sqlId = "SELECT member_id FROM member WHERE username= '".h($username)."'";
-
   $resultId = mysqli_query($database, $sqlId);
-
   $member_id = $resultId->fetch_array()[0] ?? '';
 
   echo "member id: " . h($member_id);
-
   echo "<br>";
 
   // Initialize variables base on what user submitted
@@ -72,9 +67,7 @@ if (isset($_POST['submit']) && isset($_FILES['media'])) {
     $em = "unknown error occurred!";
     redirect_to('post.php?error='.$em);
   }
-
 } else {
   echo "";
 }
-
 ?>

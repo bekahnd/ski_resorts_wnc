@@ -3,12 +3,10 @@ include_once('../../private/initialize.php');
 $page_title = 'Edit Description';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
-
 $tableName = "resort";
 ?>
 
 <h2>Edit Resort Description</h2>
-
 <?php
 // gets information from database based on resort id and initialized variables
 if(isset($_POST['submit'])) {
@@ -59,5 +57,3 @@ if(isset($_POST['submit'])) {
   <input type='hidden' name='id' value='<?php if(isset($id)) echo $id; ?>'>
   <button type="submit" name="submit">Make Edits</button>
 </form>
-
-

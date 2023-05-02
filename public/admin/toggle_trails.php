@@ -3,7 +3,6 @@ include_once('../../private/initialize.php');
 $page_title = 'Admin Toggle Trails';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
-
 $table_name = "trail";
 
 echo "<h2>Trail updated successfully</h2>";

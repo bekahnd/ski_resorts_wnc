@@ -3,7 +3,6 @@ include_once('../../private/initialize.php');
 $page_title = 'Admin Toggle Admin';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
-
 $tableName = "member";
 
 if(isset($_POST['submit'])) {
@@ -35,5 +34,4 @@ if(isset($_POST['submit'])) {
   // button to go back to members list (admin_home)
   echo "<p id='p_button'><a href='" . url_for('public/admin/admin_home.php') . "' id='button'>&lt; &lt; Back to members list</a></p>";
 }
-
 ?>

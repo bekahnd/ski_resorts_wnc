@@ -3,13 +3,11 @@ include_once('../../private/initialize.php');
 $page_title = 'Admin Edit Price';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
-
 $table_name = 'resort_pricing';
 $resort_table = 'resort';
 ?>
 
 <h2>Edit Price</h2>
-
 <?php
 // get id from submit on which price to update
 if(isset($_POST['submit'])) {
@@ -17,7 +15,6 @@ if(isset($_POST['submit'])) {
   $category = mysqli_real_escape_string($database, $_POST['category']);
   $sql = "SELECT price FROM $table_name WHERE pricing_id=$id";
   $result = mysqli_query($database, $sql);
-  
   
   if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
@@ -29,7 +26,6 @@ if(isset($_POST['submit'])) {
     <label for="new_price">Price for <?php echo $category; ?></label>
     <input type="text" name="new_price" id="new_price" value="<?php echo $price; ?>">
     <input type='hidden' name='category' value='<?php if(isset($category)) echo $category; ?>'>
-  
     <input type='hidden' name='id' value='<?php if(isset($id)) echo $id; ?>'>
     <button type="submit" name="submit">Make Edits</button>
   </form>
@@ -110,11 +106,7 @@ if(isset($_POST['submit'])) {
   </form>
     <?php
   }
-} else {
+  } else {
   echo "No post submitted.";
 }
 ?>
-
-
-
-

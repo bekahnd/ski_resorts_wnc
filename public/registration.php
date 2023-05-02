@@ -1,12 +1,8 @@
 <?php
 require('../private/initialize.php');
 $page_title = 'Create an Account';
-
-
-?>
-<?php
-
 include_once(SHARED_PATH . '/public_header.php');
+
 // Assign variables based on user submission
 if(is_post_request()) {
   $first_name = mysqli_real_escape_string($database, $_POST["fname"]);
@@ -30,14 +26,11 @@ if(is_post_request()) {
       $sql = "INSERT INTO member (username, first_name, last_name, email, state_id, hashed_password) VALUES ('$username', '$first_name', '$last_name', '$email', '$state_id', '$hashed_password')";
       mysqli_query($database, $sql);
       redirect_to(url_for("public/login.php"));
-
     } else {
       echo "<p id='failed'>Passwords do not match.</p>";
     }
   }
 }
-
-
 ?>
 
 <!-- Form for user registration -->
@@ -64,7 +57,6 @@ if(is_post_request()) {
       echo "error";
     } ?><br>
     <button type="submit" name="submit">Create Account</button>
-    
   </form>
   <!-- Link to login if user already has an account -->
   <p>Already have an account? Click <a href="login.php">here</a> to login.</p>

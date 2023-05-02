@@ -3,7 +3,6 @@ include_once('../../private/initialize.php');
 $page_title = 'Edit Successful';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
-
 $tableName = "resort";
 
 // Initializes variables based on POST submission

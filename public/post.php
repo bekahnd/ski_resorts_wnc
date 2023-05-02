@@ -9,8 +9,8 @@ check_member_login();
 <?php
 if (isset($_GET['error'])): ?>
   <p><?php echo mysqli_real_escape_string($database, $_GET['error']) ?></p>
-  <?php endif ?>
-  <!-- Form fro user to upload photo -->
+<?php endif ?>
+<!-- Form fro user to upload photo -->
 <form action="upload.php"method="post" enctype="multipart/form-data">
   <label id="media">Upload photo or video here.</label>
   <input type="file" id="media" name="media"><br>
@@ -30,5 +30,5 @@ if (isset($_GET['error'])): ?>
   } else {
       echo "error";
     } ?><br>
-    <input type="submit" name="submit" value="Post" id="submit">
+  <input type="submit" name="submit" value="Post" id="submit">
 </form>

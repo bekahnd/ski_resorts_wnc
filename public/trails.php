@@ -1,5 +1,3 @@
-<div id="trails">
-
 <?php
 include_once('../private/initialize.php');
 $page_title = 'Trails';
@@ -28,64 +26,64 @@ foreach ($result as $row) {
 
 $difficulty = array();
 foreach ($trails as $resort_id => $trail_names) {
-    $count = 0;
-    $greenCount = 0;
-    $blueCount = 0;
-    $blackCount = 0;
-    $blueBlackCount = 0;
-    $doubleBlackCount = 0;
-    $terrainCount = 0;
-    $openCount = 0;
-    $closedCount = 0;
-    foreach ($trail_names as $trail_name => $trail) {
-        switch ($trail['difficulty_level']) {
-            case 'green':
-                $greenCount++;
-                break;
-            case 'blue':
-                $blueCount++;
-                break;
-            case 'black':
-                $blackCount++;
-                break;
-            case 'black/blue':
-                $blueBlackCount++;
-                break;
-            case 'double black':
-                $doubleBlackCount++;
-                break;
-            case 'terrain park':
-                $terrainCount++;
-                break;
-            default:
-                // ignore any other difficulty levels
-                break;
-        }
+  $count = 0;
+  $greenCount = 0;
+  $blueCount = 0;
+  $blackCount = 0;
+  $blueBlackCount = 0;
+  $doubleBlackCount = 0;
+  $terrainCount = 0;
+  $openCount = 0;
+  $closedCount = 0;
+  foreach ($trail_names as $trail_name => $trail) {
+    switch ($trail['difficulty_level']) {
+      case 'green':
+        $greenCount++;
+        break;
+      case 'blue':
+        $blueCount++;
+        break;
+      case 'black':
+        $blackCount++;
+        break;
+      case 'black/blue':
+        $blueBlackCount++;
+        break;
+      case 'double black':
+        $doubleBlackCount++;
+        break;
+      case 'terrain park':
+        $terrainCount++;
+        break;
+      default:
+        // ignore any other difficulty levels
+        break;
     }
-    foreach ($trail_names as $trail_name => $trail) {
-      switch ($trail['is_open']) {
-        case 'open':
-          $openCount++;
-          break;
-        case 'closed':
-          $closedCount++;
-          break;
-        default:
-          // ignore any other values
-          break;
-      }
+  }
+  foreach ($trail_names as $trail_name => $trail) {
+    switch ($trail['is_open']) {
+      case 'open':
+        $openCount++;
+        break;
+      case 'closed':
+        $closedCount++;
+        break;
+      default:
+        // ignore any other values
+        break;
     }
-    $difficulty[$resort_id][$count] = array(
-        'green' => $greenCount,
-        'blue' => $blueCount,
-        'black' => $blackCount,
-        'blue/black' => $blueBlackCount,
-        'double black' => $doubleBlackCount,
-        'terrain' => $terrainCount,
-        'open' => $openCount,
-        'closed' => $closedCount
-    );
-    $count++;
+  }
+  $difficulty[$resort_id][$count] = array(
+    'green' => $greenCount,
+    'blue' => $blueCount,
+    'black' => $blackCount,
+    'blue/black' => $blueBlackCount,
+    'double black' => $doubleBlackCount,
+    'terrain' => $terrainCount,
+    'open' => $openCount,
+    'closed' => $closedCount
+  );
+  $count++;
 }
 
 $sql = "SELECT resort_id, trail_map_url FROM resort LIMIT 5";
@@ -151,8 +149,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <!-- Display information for resort 2 -->
 <div id="tab2Content">
-<h3>Sugar Mountain Resort</h3>
-<table>
+  <h3>Sugar Mountain Resort</h3>
+  <table>
     <tr>
       <th>Green</th>
       <th>Blue</th>
@@ -191,8 +189,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <!-- Display information for resort 3 -->
 <div id="tab3Content">
-<h3>Beech Mountain Resort</h3>
-<table>
+  <h3>Beech Mountain Resort</h3>
+  <table>
     <tr>
       <th>Green</th>
       <th>Blue</th>
@@ -217,15 +215,15 @@ while ($row = mysqli_fetch_assoc($result)) {
     </tr>
   </table>
   <?php
-echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
-$trailList = array_keys($trails[3]);
-for ($i = 0; $i < 17; $i++) {
-  echo '<div class="trailGrid">';
-  echo "<p>" . $trailList[$i] . "</p>";
-  echo "<p>" . $trails[3][$trailList[$i]]['is_open'];
-  echo "<p>" . $trails[3][$trailList[$i]]['difficulty_level'];
-  echo "</div>";
-}
+  echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
+  $trailList = array_keys($trails[3]);
+  for ($i = 0; $i < 17; $i++) {
+    echo '<div class="trailGrid">';
+    echo "<p>" . $trailList[$i] . "</p>";
+    echo "<p>" . $trails[3][$trailList[$i]]['is_open'];
+    echo "<p>" . $trails[3][$trailList[$i]]['difficulty_level'];
+    echo "</div>";
+  }
   ?>
 </div>
 
@@ -257,21 +255,21 @@ for ($i = 0; $i < 17; $i++) {
     </tr>
   </table>
   <?php
-echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
-$trailList = array_keys($trails[4]);
-for ($i = 0; $i < 12; $i++) {
-  echo '<div class="trailGrid">';
-  echo "<p>" . $trailList[$i] . "</p>";
-  echo "<p>" . $trails[4][$trailList[$i]]['is_open'];
-  echo "<p>" . $trails[4][$trailList[$i]]['difficulty_level'];
-  echo "</div>";
-}
+  echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
+  $trailList = array_keys($trails[4]);
+  for ($i = 0; $i < 12; $i++) {
+    echo '<div class="trailGrid">';
+    echo "<p>" . $trailList[$i] . "</p>";
+    echo "<p>" . $trails[4][$trailList[$i]]['is_open'];
+    echo "<p>" . $trails[4][$trailList[$i]]['difficulty_level'];
+    echo "</div>";
+  }
   ?>
 </div>
 <!-- Display information for resort 5 -->
 <div id="tab5Content">
-<h3>Wolf Ridge Ski Resort</h3>
-<table>
+  <h3>Wolf Ridge Ski Resort</h3>
+  <table>
     <tr>
       <th>Green</th>
       <th>Blue</th>
@@ -307,10 +305,6 @@ for ($i = 0; $i < 12; $i++) {
   }
   ?>
 </div>
-
 <?php
-  include(SHARED_PATH . '/public_footer.php');
+include(SHARED_PATH . '/public_footer.php');
 ?>
-</div>
-</body>
-</html>

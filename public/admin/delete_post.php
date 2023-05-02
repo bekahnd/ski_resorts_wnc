@@ -3,7 +3,6 @@ include_once('../../private/initialize.php');
 $page_title = 'Delete Post';
 include_once(SHARED_PATH . '/admin_header.php');
 check_admin_login();
-
 $tableName = "post";
 ?>
 
