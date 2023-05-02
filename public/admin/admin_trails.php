@@ -99,17 +99,24 @@ check_admin_login();
 
     <!-- Javascript for creating tabs for each resort -->
     <div class="tabs">
-      <div id="tab1" onClick="Javascript:selectTab(1);">Cataloochie Ski Resort</div>
-      <div id="tab2" onClick="Javascript:selectTab(2);">Sugar Mountain Resort</div>
-      <div id="tab3" onClick="Javascript:selectTab(3);">Beech Mountain Resort</div>
-      <div id="tab4" onClick="Javascript:selectTab(4);">Appalachian Ski MTN</div>
-      <div id="tab5" onClick="Javascript:selectTab(5);">Wolf Ridge Ski Resort</div>
+      <div class="tab1" onClick="Javascript:selectTab(1);">Cataloochie Ski Resort</div>
+      <div class="tab2" onClick="Javascript:selectTab(2);">Sugar Mountain Resort</div>
+      <div class="tab3" onClick="Javascript:selectTab(3);">Beech Mountain Resort</div>
+      <div class="tab4" onClick="Javascript:selectTab(4);">Appalachian Ski MTN</div>
+      <div class="tab5" onClick="Javascript:selectTab(5);">Wolf Ridge Ski Resort</div>
+    </div>
+    <div id="hide_tabs" class="tabs">
+      <div class="tab1" onClick="Javascript:selectTab(1);">Cat</div>
+      <div class="tab2" onClick="Javascript:selectTab(2);">Sugar</div>
+      <div class="tab3" onClick="Javascript:selectTab(3);">Beech</div>
+      <div class="tab4" onClick="Javascript:selectTab(4);">App</div>
+      <div class="tab5" onClick="Javascript:selectTab(5);">Wolf</div>
     </div>
 
     <!-- Display information for resort 1 -->
     <div id="tab1Content">
       <h3>Cataloochie Ski Resort</h3>
-      <table>
+      <table class="trail_info_large">
         <tr>
           <th>Green</th>
           <th>Blue</th>
@@ -133,13 +140,44 @@ check_admin_login();
           <td><a href="<?php echo $trail_url[0]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
         </tr>
       </table>
+      <table class="trail_info_small">
+        <tr>
+          <th>Green</th>
+          <th>Blue</th>
+          <th>Black/Blue</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[1][0]['green']; ?></td>
+          <td><?php echo $difficulty[1][0]['blue']; ?></td>
+          <td><?php echo $difficulty[1][0]['blue/black']; ?></td>
+          <tr>
+          <th>Black</th>
+          <th>Double Black</th>
+          <th>Terrain Park</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[1][0]['black']; ?></td>
+          <td><?php echo $difficulty[1][0]['double black']; ?></td>
+          <td><?php echo $difficulty[1][0]['terrain']; ?></td>
+        </tr>
+        <tr>
+          <th>Open Trails</th>
+          <th>Closed Trails</th>
+          <th>Trail Map</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[1][0]['open']; ?></td>
+          <td><?php echo $difficulty[1][0]['closed']; ?></td>
+          <td><a href="<?php echo $trail_url[0]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
+        </tr>
+      </table>
       <?php
       echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
       $trailList = array_keys($trails[1]);
       for ($i = 0; $i < 18; $i++) {
         echo '<div class="trailGrid">';
         echo "<p>" . $trailList[$i] . "</p>";
-        echo "<div><p>" . $trails[1][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' id='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
+        echo "<div><p>" . $trails[1][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
         echo "<p>" . $trails[1][$trailList[$i]]['difficulty_level'] . "</p>";
         echo "</div>";
       }
@@ -149,7 +187,7 @@ check_admin_login();
     <!-- Display information for resort 2 -->
     <div id="tab2Content">
       <h3>Sugar Mountain Resort</h3>
-      <table>
+      <table class="trail_info_large">
         <tr>
           <th>Green</th>
           <th>Blue</th>
@@ -173,13 +211,44 @@ check_admin_login();
           <td><a href="<?php echo $trail_url[1]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
         </tr>
       </table>
+      <table class="trail_info_small">
+        <tr>
+          <th>Green</th>
+          <th>Blue</th>
+          <th>Black/Blue</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[2][0]['green']; ?></td>
+          <td><?php echo $difficulty[2][0]['blue']; ?></td>
+          <td><?php echo $difficulty[2][0]['blue/black']; ?></td>
+          <tr>
+          <th>Black</th>
+          <th>Double Black</th>
+          <th>Terrain Park</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[2][0]['black']; ?></td>
+          <td><?php echo $difficulty[2][0]['double black']; ?></td>
+          <td><?php echo $difficulty[2][0]['terrain']; ?></td>
+        </tr>
+        <tr>
+          <th>Open Trails</th>
+          <th>Closed Trails</th>
+          <th>Trail Map</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[2][0]['open']; ?></td>
+          <td><?php echo $difficulty[2][0]['closed']; ?></td>
+          <td><a href="<?php echo $trail_url[1]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
+        </tr>
+        </table>
       <?php
       echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
       $trailList = array_keys($trails[2]);
       for ($i = 0; $i < 20; $i++) {
         echo '<div class="trailGrid">';
         echo "<p>" . $trailList[$i] . "</p>";
-        echo "<div><p>" . $trails[2][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' id='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
+        echo "<div><p>" . $trails[2][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
         echo "<p>" . $trails[2][$trailList[$i]]['difficulty_level'];
         echo "</div>";
       }
@@ -189,7 +258,7 @@ check_admin_login();
     <!-- Display information for resort 3 -->
     <div id="tab3Content">
       <h3>Beech Mountain Resort</h3>
-      <table>
+      <table class="trail_info_large">
         <tr>
           <th>Green</th>
           <th>Blue</th>
@@ -213,13 +282,44 @@ check_admin_login();
           <td><a href="<?php echo $trail_url[2]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
         </tr>
       </table>
+      <table class="trail_info_small">
+        <tr>
+          <th>Green</th>
+          <th>Blue</th>
+          <th>Black/Blue</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[3][0]['green']; ?></td>
+          <td><?php echo $difficulty[3][0]['blue']; ?></td>
+          <td><?php echo $difficulty[3][0]['blue/black']; ?></td>
+          <tr>
+          <th>Black</th>
+          <th>Double Black</th>
+          <th>Terrain Park</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[3][0]['black']; ?></td>
+          <td><?php echo $difficulty[3][0]['double black']; ?></td>
+          <td><?php echo $difficulty[3][0]['terrain']; ?></td>
+        </tr>
+        <tr>
+          <th>Open Trails</th>
+          <th>Closed Trails</th>
+          <th>Trail Map</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[3][0]['open']; ?></td>
+          <td><?php echo $difficulty[3][0]['closed']; ?></td>
+          <td><a href="<?php echo $trail_url[2]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
+        </tr>
+      </table>
       <?php
       echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
       $trailList = array_keys($trails[3]);
       for ($i = 0; $i < 17; $i++) {
         echo '<div class="trailGrid">';
         echo "<p>" . $trailList[$i] . "</p>";
-        echo "<div><p>" . $trails[3][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' id='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
+        echo "<div><p>" . $trails[3][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
         echo "<p>" . $trails[3][$trailList[$i]]['difficulty_level'];
         echo "</div>";
       }
@@ -229,7 +329,7 @@ check_admin_login();
     <!-- Display information for resort 4 -->
     <div id="tab4Content">
       <h3>Appalachian Ski MTN</h3>
-      <table>
+      <table class="trail_info_large">
         <tr>
           <th>Green</th>
           <th>Blue</th>
@@ -253,13 +353,44 @@ check_admin_login();
           <td><a href="<?php echo $trail_url[3]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
         </tr>
       </table>
+      <table class="trail_info_small">
+        <tr>
+          <th>Green</th>
+          <th>Blue</th>
+          <th>Black/Blue</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[4][0]['green']; ?></td>
+          <td><?php echo $difficulty[4][0]['blue']; ?></td>
+          <td><?php echo $difficulty[4][0]['blue/black']; ?></td>
+          <tr>
+          <th>Black</th>
+          <th>Double Black</th>
+          <th>Terrain Park</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[4][0]['black']; ?></td>
+          <td><?php echo $difficulty[4][0]['double black']; ?></td>
+          <td><?php echo $difficulty[4][0]['terrain']; ?></td>
+        </tr>
+        <tr>
+          <th>Open Trails</th>
+          <th>Closed Trails</th>
+          <th>Trail Map</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[4][0]['open']; ?></td>
+          <td><?php echo $difficulty[4][0]['closed']; ?></td>
+          <td><a href="<?php echo $trail_url[3]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
+        </tr>
+      </table>
       <?php
       echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
       $trailList = array_keys($trails[4]);
       for ($i = 0; $i < 12; $i++) {
       echo '<div class="trailGrid">';
       echo "<p>" . $trailList[$i] . "</p>";
-      echo "<div><p>" . $trails[4][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' id='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
+      echo "<div><p>" . $trails[4][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
       echo "<p>" . $trails[4][$trailList[$i]]['difficulty_level'];
       echo "</div>";
       }
@@ -268,7 +399,7 @@ check_admin_login();
     <!-- Display information for resort 5 -->
     <div id="tab5Content">
       <h3>Wolf Ridge Ski Resort</h3>
-      <table>
+      <table class="trail_info_large">
         <tr>
           <th>Green</th>
           <th>Blue</th>
@@ -292,13 +423,44 @@ check_admin_login();
           <td><a href="<?php echo $trail_url[4]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
         </tr>
       </table>
+      <table class="trail_info_small">
+        <tr>
+          <th>Green</th>
+          <th>Blue</th>
+          <th>Black/Blue</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[5][0]['green']; ?></td>
+          <td><?php echo $difficulty[5][0]['blue']; ?></td>
+          <td><?php echo $difficulty[5][0]['blue/black']; ?></td>
+          <tr>
+          <th>Black</th>
+          <th>Double Black</th>
+          <th>Terrain Park</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[5][0]['black']; ?></td>
+          <td><?php echo $difficulty[5][0]['double black']; ?></td>
+          <td><?php echo $difficulty[5][0]['terrain']; ?></td>
+        </tr>
+        <tr>
+          <th>Open Trails</th>
+          <th>Closed Trails</th>
+          <th>Trail Map</th>
+        </tr>
+        <tr>
+          <td><?php echo $difficulty[5][0]['open']; ?></td>
+          <td><?php echo $difficulty[5][0]['closed']; ?></td>
+          <td><a href="<?php echo $trail_url[4]['trail_map_url']; ?>" target="_blank">Trail Map</a></td>
+        </tr>
+      </table>
       <?php
       echo '<div class="trailGrid"><p>Trail Name</p><p>Status</p><p>Difficulty</p></div>';
       $trailList = array_keys($trails[5]);
       for ($i = 0; $i < 15; $i++) {
         echo '<div class="trailGrid">';
         echo "<p>" . $trailList[$i] . "</p>";
-        echo "<div><p>" . $trails[5][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' id='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
+        echo "<div><p>" . $trails[5][$trailList[$i]]['is_open'] . "<form method='post' action='toggle_trails.php'><input type='hidden' name='trail_name' value='".$trailList[$i]."'><button type='submit' name='submit'>Toggle Status</button></form></p></div>";
         echo "<p>" . $trails[5][$trailList[$i]]['difficulty_level'];
         echo "</div>";
       }

@@ -240,6 +240,14 @@ h3 {
   text-transform: capitalize;
 }
 
+.trail_info_small {
+  display: none;
+}
+
+#hide_tabs {
+  display: none;
+}
+
 
 /****** Prices ******/
 .tabs {
@@ -248,7 +256,7 @@ h3 {
   text-align: center;
 }
 
-#tab1, #tab2, #tab3, #tab4, #tab5 {
+.tab1, .tab2, .tab3, .tab4, .tab5 {
   background: #01A8B7;
   border: 1px solid #000;
   border-radius: 5px;
@@ -260,11 +268,11 @@ h3 {
   text-align: center;
 }
 
-#tab1:hover, #tab2:hover, #tab3:hover, #tab4:hover, #tab5:hover {
+.tab1:hover, .tab2:hover, .tab3:hover, .tab4:hover, .tab5:hover {
   background: #4EEFFD;
 }
 
-#tab1Content, #tab2Content, #tab3Content, #tab4Content, #tab5Content {
+.tab1Content, .tab2Content, .tab3Content, .tab4Content, .tab5Content {
   padding: 20px;
   border-radius: 10px;
 }
@@ -451,12 +459,33 @@ button {
 }
 
 /****** Responsive ******/
+/****** 1480 ******/
+@media only screen and (max-width: 1480px) {
+  #posts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/****** 1200 ******/
+@media only screen and (max-width: 1200px) {
+  #hide_tabs {
+    display: block;
+  }
+
+  .tabs {
+    display: none;
+  }
+}
+
+/****** 1000 ******/
+@media only screen and (max-width: 1000px) {
+  #posts {
+    display: block;
+  }
+}
+
 /****** 850 ******/
 @media only screen and (max-width: 850px) {
-  /* #tables {
-    grid-template-columns: 1fr 1fr;
-  } */
-
   #login {
     width: 70%;
   }
@@ -472,6 +501,17 @@ button {
   #resortDescriptions {
     display: block;
     margin: 20px;
+  }
+}
+
+/****** 750 ******/
+@media only screen and (max-width: 750px) {
+  .trail_info_small {
+    display: block;
+  }
+
+  .trail_info_large {
+    display: none;
   }
 }
 
@@ -509,8 +549,3 @@ button {
     width: 90%;
   }
 }
-
-
-
-
-

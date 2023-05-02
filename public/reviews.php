@@ -24,6 +24,13 @@ $data1 = json_decode($response1, true);
   <div id="tab4" onClick="Javascript:selectTab(4);">Appalachian Ski MTN</div>
   <div id="tab5" onClick="Javascript:selectTab(5);">Wolf Ridge Ski Resort</div>
 </div>
+<div id="hide_tabs" class="tabs">
+  <div id="tab1" onClick="Javascript:selectTab(1);">Cat</div>
+  <div id="tab2" onClick="Javascript:selectTab(2);">Sugar</div>
+  <div id="tab3" onClick="Javascript:selectTab(3);">Beech</div>
+  <div id="tab4" onClick="Javascript:selectTab(4);">App</div>
+  <div id="tab5" onClick="Javascript:selectTab(5);">Wolf</div>
+</div>
 
 <div id="tab1Content">
   <h3>Cataloochi Ski Resort</h3>
